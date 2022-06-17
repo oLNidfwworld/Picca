@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="Picca.Views.History"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <FlexLayout Direction="Column" >
+            <StackLayout BackgroundColor="#6b1d12" Orientation="Horizontal" HeightRequest="80">
+                <Label   Text="Главная" FontSize="40" Margin="10, 0,0,0" VerticalOptions="Center" TextColor="White" FontFamily="Serif"></Label>
+                <Frame HorizontalOptions="EndAndExpand" HeightRequest="50" Padding="0" BackgroundColor="NavajoWhite" CornerRadius="10" Margin="0,0,10,0" VerticalOptions="Center">
+                    <StackLayout Orientation="Horizontal">
+                        <Label FontSize="18"  TextColor="Black"  FontFamily="Serif" VerticalOptions="CenterAndExpand" IsVisible="hidden"></Label>
+                        <Image Source="basket32" HeightRequest="32" VerticalOptions="Center"></Image>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

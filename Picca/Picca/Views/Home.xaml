@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Picca.Views.Home"
+             Shell.NavBarIsVisible="False"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" >
+    <ContentPage.Resources>
+    
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        
+        <StackLayout Spacing="0"  Background="#9A3123">
+            <StackLayout BackgroundColor="#6b1d12" Orientation="Horizontal" HeightRequest="80">
+                <Label   Text="Главная" FontSize="40" Margin="10, 0,0,0" VerticalOptions="Center" TextColor="White" FontFamily="Serif"></Label>
+                <Frame HorizontalOptions="EndAndExpand" HeightRequest="50" Padding="0" BackgroundColor="NavajoWhite" CornerRadius="10" Margin="0,0,10,0" VerticalOptions="Center">
+                    <StackLayout Orientation="Horizontal">
+                        <Label FontSize="18"  TextColor="Black"  FontFamily="Serif" VerticalOptions="CenterAndExpand" IsVisible="hidden"></Label>
+                        <Image Source="basket32" HeightRequest="32" VerticalOptions="Center"></Image>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <ScrollView>
+                
+            
+            <Grid BackgroundColor="#9A3123"  >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <CollectionView Grid.Row="0"   HeightRequest="60" x:Name="ggggg" SelectedItem="{Binding SelectedCategory}"  Background="#6b1d12" ItemsSource="{Binding FoodCat}" SelectionMode="Single" >
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout   Orientation="Horizontal" Span="1" >
+
+                        </GridItemsLayout>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate >
+                            
+                            <Grid Margin="10">
+
+                                <StackLayout>
+                                    <Label CharacterSpacing="0"  Text="{Binding CategoryName}" HorizontalOptions="Center" FontSize="30" TextColor="White" FontFamily="Serif"></Label>
+                                    <Grid HeightRequest="10" BackgroundColor="Black">
+                                       
+                                    </Grid>
+                                </StackLayout>
+                                 <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup Name="CommonStates">
+                                        <VisualState Name="Normal" />
+                                        <VisualState Name="Selected">
+                                            <VisualState.Setters>
+                                                    <Setter Property="BackgroundColor" Value="#802215" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <StackLayout Grid.Row="1" Padding="10,0,10,0">
+                        <SearchBar xct:IconTintColorEffect.TintColor="Black" CancelButtonColor="#FCF2F0" TextColor="Black" PlaceholderColor="#FCF2F0" Text="{Binding FileterName}" xct:CornerRadiusEffect.CornerRadius="20" Placeholder="Поиск по названию" Background="#FC998A"></SearchBar>
+                    <CollectionView Background="#9A3123"  ItemsSource="{Binding Food}" SelectionMode="Single">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout   Orientation="Vertical" Span="1" >
+
+                            </GridItemsLayout>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid WidthRequest="170"   >
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup Name="CommonStates">
+                                            <VisualState Name="Normal" />
+                                            <VisualState Name="Selected">
+                                                <VisualState.Setters>
+                                                    <Setter Property="BackgroundColor" Value="transparent" />
+                                                </VisualState.Setters>
+                                            </VisualState>
+
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                    <Frame   xct:CornerRadiusEffect.CornerRadius="20,0,0,20" BackgroundColor="#FFF5F5" HeightRequest="150" MinimumHeightRequest="160"  Margin="10"  xct:ShadowEffect.Color="#9A3123" HasShadow="True">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="120"></ColumnDefinition>
+                                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Image VerticalOptions="Center" Grid.Column="0" Source="{Binding imgFood}"></Image>
+                                            <StackLayout VerticalOptions="Center" Orientation="Vertical" Grid.Column="1">
+                                                <Label Text="{Binding Name}" TextColor="Black" FontSize="20"></Label>
+                                                <Label Text="{Binding Description}" MaxLines="4" TextColor="Gray"></Label>
+                                                <Label Text="{Binding StringFormat='{0} Р', Path=price}" TextColor="Black" FontSize="20"></Label>
+                                            </StackLayout>
+                                        </Grid>
+                                    </Frame>
+                                   
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <Grid HeightRequest="5" BackgroundColor="White" WidthRequest="200"></Grid>
+                   
+
+
+                </StackLayout>
+               
+                    
+                    
+                </Grid>
+            </ScrollView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
