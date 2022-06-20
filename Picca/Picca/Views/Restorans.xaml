@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:xct="http://xamarin.com/schemas/2020/toolkit" xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             x:Class="Picca.Views.Restorans"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <StackLayout Spacing="0">
+            <StackLayout BackgroundColor="#6b1d12" Orientation="Horizontal" HeightRequest="80">
+                <Label   Text="Рестораны" FontSize="40" Margin="10, 0,0,0" VerticalOptions="Center" TextColor="White" FontFamily="Serif"></Label>
+
+                <Frame HorizontalOptions="EndAndExpand" HeightRequest="50" Padding="0" BackgroundColor="NavajoWhite" CornerRadius="10" Margin="0,0,10,0" VerticalOptions="Center">
+                    <StackLayout Orientation="Horizontal">
+                        <Label FontSize="18"  TextColor="Black"  FontFamily="Serif" VerticalOptions="CenterAndExpand" IsVisible="hidden"></Label>
+                        <Image Source="basket32" HeightRequest="32" VerticalOptions="Center"></Image>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <Grid ColumnSpacing="0" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1000"></RowDefinition>
+                </Grid.RowDefinitions>
+                <maps:Map x:Name="map" Grid.Row="0" IsShowingUser="True"
+                          >
+                    <maps:Map.Pins
+                        >
+                        <maps:Pin Label="Santa Cruz"
+                                Address="The city with a boardwalk"
+                                    Type="Place">
+                            <maps:Pin.Position>
+                                <maps:Position>
+                                    <x:Arguments>
+                                        <x:Double>36.9628066</x:Double>
+                                        <x:Double>-122.0194722</x:Double>
+                                    </x:Arguments>
+                                </maps:Position>
+                            </maps:Pin.Position>
+                        </maps:Pin>
+                    </maps:Map.Pins>
+                </maps:Map>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -32,8 +32,13 @@
 
     <TabBar>
         <ShellContent Title="Главная" Icon="home_icon.png" Route="Home" ContentTemplate="{DataTemplate local:Home}" />
-        <ShellContent Title="Купоны" Icon="coupon.png" Route="Coupons" ContentTemplate="{DataTemplate local:Coupons}" />
-        <ShellContent Title="История" Icon="ic_sharp_history.png" Route="History" ContentTemplate="{DataTemplate local:History}" />
+        <ShellContent Title="Рестораны" Icon="coupon.png" Route="Coupons" ContentTemplate="{DataTemplate local:Restorans}" />
+        <ShellContent Title="Подробнее" Icon="ic_sharp_history.png" Route="History" ContentTemplate="{DataTemplate local:MorePage}" />
+        <ShellContent Title="Login" Icon="ic_sharp_history.png" Route="Login" ContentTemplate="{DataTemplate local:AuthorizationPage}" />
+        <ShellContent Title="AboutFood" Icon="ic_sharp_history.png" Route="AboutFood" ContentTemplate="{DataTemplate local:AboutFoodPage}" />
+        <ShellContent Title="Profile" Icon="ic_sharp_history.png" Route="Profile" ContentTemplate="{DataTemplate local:profile}" />
+        <ShellContent Title="Cart" Icon="ic_sharp_history.png" Route="cart" ContentTemplate="{DataTemplate local:Cart}" />
+
     </TabBar>
 
     <!--

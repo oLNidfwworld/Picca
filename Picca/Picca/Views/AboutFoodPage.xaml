@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Picca.Views.AboutFoodPage"
+             BackgroundColor="Transparent"
+             Shell.NavBarIsVisible="False"
+             xmlns:pankake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             >
+    <ContentPage.Content>
+        <pankake:PancakeView Background="#6b1d12" Opacity="1" CornerRadius="30,30,0,0" HeightRequest="400">
+            <Grid BackgroundColor="#9A3123" Padding="20,10" ColumnSpacing="0" RowSpacing="0">
+                <StackLayout Spacing="0">
+                    <ImageButton HorizontalOptions="EndAndExpand" xct:TouchEffect.AnimationEasing="{x:Static Easing.Linear}" xct:TouchEffect.PressedOpacity="0.7" xct:ShadowEffect.Radius="30" Clicked="ImageButton_Clicked" VerticalOptions="Center" Source="cross.png" BackgroundColor="Transparent" WidthRequest="50"></ImageButton>
+                    <Label x:Name="NameProduct" HorizontalOptions="Center" TextColor="White" FontFamily="Serif" FontSize="40">Название товара</Label>
+                    <Image x:Name="ImageProduct" Source="logo_pizza.png" WidthRequest="280"></Image>
+                    <Label FontSize="30" FontFamily="Serif" TextColor="White" Margin="0" Padding="0">Информация</Label>
+                    <Label x:Name="DescriptionProduct" FontSize="20" FontFamily="Serif" TextColor="#d1d1c9" CharacterSpacing="0" LineHeight="0.5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</Label>
+                    <Label FontSize="30" FontFamily="Serif" TextColor="White" Margin="0" Padding="0">Цена, Р</Label>
+                    <Label x:Name="PriceProduct" FontSize="20" FontFamily="Serif" TextColor="#d1d1c9" CharacterSpacing="0" >500</Label>
+                    <Button CornerRadius="30" Margin="10" Text="Добавить в корзину" Background="transparent" BorderColor="White" BorderWidth="3" TextColor="White" FontFamily="Serif"></Button>
+                
+                 
+                </StackLayout>
+            </Grid>
+        </pankake:PancakeView>
+    </ContentPage.Content>
+</ContentPage>

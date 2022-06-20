@@ -1,12 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Picca.Views.profile">
+             x:Class="Picca.Views.profile"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             Shell.NavBarIsVisible="False">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Spacing="0">
+            <StackLayout Spacing="0" Padding="0" BackgroundColor="#6b1d12" Orientation="Horizontal" HeightRequest="80">
+                <ImageButton BackgroundColor="Transparent" Source="leftarrow.png" HorizontalOptions="StartAndExpand" WidthRequest="30" Margin="10,0,0,0" ></ImageButton>
+                <Label   HorizontalOptions="CenterAndExpand" Text="Профиль" FontSize="40"  VerticalOptions="Center" TextColor="White" FontFamily="Serif"></Label>
+                <Frame HorizontalOptions="EndAndExpand" HeightRequest="50" Padding="0" BackgroundColor="NavajoWhite" CornerRadius="10" Margin="0,0,10,0" VerticalOptions="Center">
+                    <StackLayout Orientation="Horizontal">
+                        <Label FontSize="18"  TextColor="Black"  FontFamily="Serif" VerticalOptions="CenterAndExpand" IsVisible="hidden"></Label>
+                        <Image Source="basket32" HeightRequest="32" VerticalOptions="Center"></Image>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <xct:TabView HeightRequest="800" BackgroundColor="#9A3123" Padding="0" Margin="0" >
+               
+                <xct:TabViewItem Text="Адреса" BackgroundColor="#6b1d12" TextColor="White" TextColorSelected="#FA4A0C">
+                    <xct:TabViewItem.Content>
+                        <Label FontSize="40" Text="1"></Label>
+
+                    </xct:TabViewItem.Content>
+
+                </xct:TabViewItem>
+                <xct:TabViewItem Text="Карты" BackgroundColor="#6b1d12" TextColor="White" TextColorSelected="#FA4A0C">
+                    <xct:TabViewItem.Content>
+                        <Label FontSize="40" Text="1"></Label>
+
+                    </xct:TabViewItem.Content>
+                </xct:TabViewItem>
+            </xct:TabView>
         </StackLayout>
+       
+        
     </ContentPage.Content>
 </ContentPage>

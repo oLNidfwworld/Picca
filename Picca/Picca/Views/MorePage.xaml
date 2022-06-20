@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="Picca.Views.MorePage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#9A3123">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout BackgroundColor="#6b1d12" Orientation="Horizontal" HeightRequest="80">
+                <Label   Text="Подробнее" FontSize="40" Margin="10, 0,0,0" VerticalOptions="Center" TextColor="White" FontFamily="Serif"></Label>
+                <Frame HorizontalOptions="EndAndExpand" HeightRequest="50" Padding="0" BackgroundColor="NavajoWhite" CornerRadius="10" Margin="0,0,10,0" VerticalOptions="Center">
+                    <StackLayout Orientation="Horizontal">
+                        <Label FontSize="18"  TextColor="Black"  FontFamily="Serif" VerticalOptions="CenterAndExpand" IsVisible="hidden"></Label>
+                        <Image Source="basket32" HeightRequest="32" VerticalOptions="Center"></Image>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <StackLayout Padding="10">
+                <Frame xct:TouchEffect.PressedAnimationEasing="{x:Static Easing.SpringOut}" xct:TouchEffect.AnimationDuration="250" xct:TouchEffect.PressedOpacity="0.7" HeightRequest="40" xct:CornerRadiusEffect.CornerRadius="50" BorderColor="Transparent">
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                        <Image VerticalOptions="Center" Source="account.png"></Image>
+                        <Label VerticalOptions="Center" TextColor="Black" FontSize="19"  FontFamily="Serif">Перейти в профиль</Label>
+                        <Image Source="rightarrow.png" HorizontalOptions="EndAndExpand"></Image>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <StackLayout>
+                <Frame xct:TouchEffect.PressedAnimationEasing="{x:Static Easing.SpringOut}" xct:TouchEffect.AnimationDuration="250" xct:TouchEffect.PressedOpacity="0.7"  BackgroundColor="Transparent">
+                    <StackLayout Orientation="Horizontal" HeightRequest="30" VerticalOptions="Center">
+                        <Label VerticalOptions="Center"  TextColor="White" FontSize="19"  FontFamily="Serif">Мои заказы</Label>
+                        <Image Source="rightarrow.png" HorizontalOptions="EndAndExpand"></Image>
+                    </StackLayout>
+                </Frame>
+                <Grid HeightRequest="3" BackgroundColor="Black" Opacity="0.4"></Grid>
+                <Frame xct:TouchEffect.PressedAnimationEasing="{x:Static Easing.SpringOut}" xct:TouchEffect.AnimationDuration="250" xct:TouchEffect.PressedOpacity="0.7" BackgroundColor="Transparent">
+                    <StackLayout Orientation="Horizontal" HeightRequest="30" VerticalOptions="Center">
+                        <Label VerticalOptions="Center"  TextColor="White" FontSize="19"  FontFamily="Serif">Акции</Label>
+                        <Image Source="rightarrow.png" HorizontalOptions="EndAndExpand"></Image>
+                    </StackLayout>
+                </Frame>
+                <Grid HeightRequest="3" BackgroundColor="Black" Opacity="0.4"></Grid>
+                <Frame xct:TouchEffect.PressedAnimationEasing="{x:Static Easing.SpringOut}" xct:TouchEffect.AnimationDuration="250" xct:TouchEffect.PressedOpacity="0.7" BackgroundColor="Transparent">
+                    <StackLayout Orientation="Horizontal" HeightRequest="30" VerticalOptions="Center">
+                        <Label VerticalOptions="Center"  TextColor="White" FontSize="19"  FontFamily="Serif">Вакансии</Label>
+                        <Image Source="rightarrow.png" HorizontalOptions="EndAndExpand"></Image>
+                    </StackLayout>
+                </Frame>
+                <Grid  HeightRequest="3" BackgroundColor="Black" Opacity="0.4"></Grid>
+
+                <Frame xct:TouchEffect.PressedAnimationEasing="{x:Static Easing.SpringOut}" xct:TouchEffect.AnimationDuration="250" xct:TouchEffect.PressedOpacity="0.7" BackgroundColor="Transparent">
+                    <StackLayout Orientation="Horizontal" HeightRequest="30" VerticalOptions="Center">
+                        <Label VerticalOptions="Center"  TextColor="White" FontSize="19" FontFamily="Serif">Служба поддержки</Label>
+                        <Image Source="rightarrow.png" HorizontalOptions="EndAndExpand"></Image>
+                    </StackLayout>
+                </Frame>
+                <Grid HeightRequest="3" BackgroundColor="Black" Opacity="0.4"></Grid>
+
+                <Frame xct:TouchEffect.PressedAnimationEasing="{x:Static Easing.SpringOut}" xct:TouchEffect.AnimationDuration="250" xct:TouchEffect.PressedOpacity="0.7" BackgroundColor="Transparent">
+                    <StackLayout Orientation="Horizontal" HeightRequest="30" VerticalOptions="Center">
+                        <Label VerticalOptions="Center"  TextColor="White" FontSize="19"  FontFamily="Serif">FAQ</Label>
+                        <Image Source="rightarrow.png" HorizontalOptions="EndAndExpand"  ></Image>
+                    </StackLayout>
+                </Frame>
+                <Grid HeightRequest="3" BackgroundColor="Black" Opacity="0.4"></Grid>
+
+            </StackLayout>
+           
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

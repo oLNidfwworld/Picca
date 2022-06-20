@@ -1,12 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Picca.Views.Cart">
+             x:Class="Picca.Views.Cart"
+             Shell.NavBarIsVisible="False"
+             Background="#9A3123">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Spacing="0">
+            
+       
+        <StackLayout Spacing="0" Padding="0" BackgroundColor="#6b1d12" Orientation="Horizontal" HeightRequest="80">
+            <ImageButton BackgroundColor="Transparent" Source="leftarrow.png" HorizontalOptions="Start" WidthRequest="30" Margin="10,0,0,0" ></ImageButton>
+            <Label   HorizontalOptions="CenterAndExpand" Text="Корзина" FontSize="40"  VerticalOptions="Center" TextColor="White" FontFamily="Serif"></Label>
+           
+        </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

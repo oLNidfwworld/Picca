@@ -1,4 +1,5 @@
-﻿using Picca.ViewModels;
+﻿using Picca.Models;
+using Picca.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,5 +22,19 @@ namespace Picca.Views
             this.BindingContext = home;
             ggggg.TabIndex = 1;
         }
+        public static Food food { get; set; }
+        private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+           
+            if (FoodItems.SelectedItem != null)
+            {
+                food = FoodItems.SelectedItem as Food;
+                FoodItems.SelectedItem = null;
+                Shell.Current.Navigation.PushAsync(new AboutFoodPage(food));
+
+            }
+        }
+
+      
     }
 }

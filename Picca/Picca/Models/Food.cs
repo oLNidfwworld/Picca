@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Picca.Models
 {
-    class Food
+     public class Food
     {
         public int price { get; set; }
         public string Name { get; set; }
