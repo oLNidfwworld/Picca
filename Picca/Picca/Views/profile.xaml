@@ -20,14 +20,65 @@
                
                 <xct:TabViewItem Text="Адреса" BackgroundColor="#6b1d12" TextColor="White" TextColorSelected="#FA4A0C">
                     <xct:TabViewItem.Content>
-                        <Label FontSize="40" Text="1"></Label>
+                        <StackLayout>
+                            <Button Text="Добавить новый адрес" CornerRadius="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="300" Margin="10" Background="green"></Button>
+                            <CollectionView x:Name="CoollAdress" SelectionMode="Single">
+                                <CollectionView.ItemsLayout>
+                                    <GridItemsLayout Span="1" Orientation="Vertical"></GridItemsLayout>
+                                    
+                                </CollectionView.ItemsLayout>
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid HeightRequest="130">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="{Binding Adress}" HorizontalOptions="StartAndExpand" VerticalOptions="Center"></Label>
+                                                <Grid HeightRequest="2" BackgroundColor="Orange" WidthRequest="5" HorizontalOptions="EndAndExpand" VerticalOptions="Center">
+                                                    <Grid.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped">
+                                                            
+                                                        </TapGestureRecognizer>
+                                                    </Grid.GestureRecognizers>
+                                                </Grid>
 
+                                            </StackLayout>
+                                            <Grid HeightRequest="3" BackgroundColor="Black"></Grid>
+                                        </Grid>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </StackLayout>
                     </xct:TabViewItem.Content>
 
                 </xct:TabViewItem>
                 <xct:TabViewItem Text="Карты" BackgroundColor="#6b1d12" TextColor="White" TextColorSelected="#FA4A0C">
                     <xct:TabViewItem.Content>
-                        <Label FontSize="40" Text="1"></Label>
+                        <StackLayout>
+                            <Button Text="Добавить новую карту" CornerRadius="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="300" Margin="10" Background="green"></Button>
+                            <CollectionView x:Name="CoolCards" SelectionMode="Single">
+                                <CollectionView.ItemsLayout>
+                                    <GridItemsLayout Span="1" Orientation="Vertical"></GridItemsLayout>
+
+                                </CollectionView.ItemsLayout>
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid HeightRequest="130">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="{Binding numbercard}" HorizontalOptions="StartAndExpand" VerticalOptions="Center"></Label>
+                                                <Grid HeightRequest="2" BackgroundColor="Orange" WidthRequest="5" HorizontalOptions="EndAndExpand" VerticalOptions="Center">
+                                                    <Grid.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped">
+
+                                                        </TapGestureRecognizer>
+                                                    </Grid.GestureRecognizers>
+                                                </Grid>
+
+                                            </StackLayout>
+                                            <Grid HeightRequest="3" BackgroundColor="Black"></Grid>
+                                        </Grid>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </StackLayout>
 
                     </xct:TabViewItem.Content>
                 </xct:TabViewItem>

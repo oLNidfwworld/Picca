@@ -8,9 +8,9 @@
     <ContentPage.Content>
         <StackLayout Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
             <Image Source="logo_pizza" HeightRequest="250"></Image>
-            <Entry HeightRequest="50" Background="white"  FontFamily="Serif"  xct:CornerRadiusEffect.CornerRadius="50" ClearButtonVisibility="WhileEditing"   FontSize="18" TextColor="Black" PlaceholderColor="Black" Placeholder="Введите логин"></Entry>
-            <Entry HeightRequest="50" Background="white"  FontFamily="Serif" IsPassword="True" ClearButtonVisibility="WhileEditing" xct:CornerRadiusEffect.CornerRadius="50" FontSize="18" TextColor="Black" PlaceholderColor="Black" Placeholder="Введите пароль"></Entry>
-            <Button Text="Войти" Background="#FC998A" CornerRadius="50"  FontFamily="Serif" xct:TouchEffect.AnimationEasing="{x:Static Easing.Linear}" xct:TouchEffect.PressedOpacity="0.7"></Button>
+            <Entry HeightRequest="50" Background="white" x:Name="Login"  FontFamily="Serif"  xct:CornerRadiusEffect.CornerRadius="50" ClearButtonVisibility="WhileEditing"   FontSize="18" TextColor="Black" PlaceholderColor="Black" Placeholder="Введите логин"></Entry>
+            <Entry HeightRequest="50" Background="white" x:Name="Password"  FontFamily="Serif" IsPassword="True" ClearButtonVisibility="WhileEditing" xct:CornerRadiusEffect.CornerRadius="50" FontSize="18" TextColor="Black" PlaceholderColor="Black" Placeholder="Введите пароль"></Entry>
+            <Button Text="Войти" Clicked="Login_Clicked" Background="#FC998A" CornerRadius="50"  FontFamily="Serif" xct:TouchEffect.AnimationEasing="{x:Static Easing.Linear}" xct:TouchEffect.PressedOpacity="0.7"></Button>
             <Button Text="Зарегистрироваться" Background="#541651"  FontFamily="Serif" CornerRadius="50" xct:TouchEffect.AnimationEasing="{x:Static Easing.Linear}" xct:TouchEffect.PressedOpacity="0.7"></Button>
         </StackLayout>
     </ContentPage.Content>

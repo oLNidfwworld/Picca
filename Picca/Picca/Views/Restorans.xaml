@@ -23,14 +23,14 @@
                           >
                     <maps:Map.Pins
                         >
-                        <maps:Pin Label="Santa Cruz"
-                                Address="The city with a boardwalk"
+                        <maps:Pin Label="Pizza d30"
+                                Address="Rusakovskaya Ulitsa, 23, Moscow, 107113"
                                     Type="Place">
                             <maps:Pin.Position>
                                 <maps:Position>
                                     <x:Arguments>
-                                        <x:Double>36.9628066</x:Double>
-                                        <x:Double>-122.0194722</x:Double>
+                                        <x:Double>55.78603025811979</x:Double>
+                                        <x:Double>37.67634453485035</x:Double>
                                     </x:Arguments>
                                 </maps:Position>
                             </maps:Pin.Position>

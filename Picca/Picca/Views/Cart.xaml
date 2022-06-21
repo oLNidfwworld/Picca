@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Picca.Views.Cart"
              Shell.NavBarIsVisible="False"
-             Background="#9A3123">
+             Background="#9A3123"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
     <ContentPage.Content>
         <StackLayout Spacing="0">
             
@@ -13,6 +14,14 @@
             <Label   HorizontalOptions="CenterAndExpand" Text="Корзина" FontSize="40"  VerticalOptions="Center" TextColor="White" FontFamily="Serif"></Label>
            
         </StackLayout>
+            <StackLayout Orientation="Horizontal" Spacing="0" HorizontalOptions="Center" Margin="0,20,0,0">
+                <Frame Padding="0" Margin="0" Background="#6b1d12" WidthRequest="150" HeightRequest="40" BorderColor="Transparent" xct:CornerRadiusEffect.CornerRadius="20,0,20,0" >
+                    <Label TextColor="White" HorizontalOptions="Center" VerticalOptions="Center">Самовывоз</Label>
+                </Frame>
+                <Frame Padding="0" Margin="0" Background="#6b1d12" WidthRequest="150" HeightRequest="40" BorderColor="Transparent" xct:CornerRadiusEffect.CornerRadius="0,20,0,20">
+                    <Label TextColor="White" HorizontalOptions="Center" VerticalOptions="Center">Доставка</Label>
+                </Frame>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

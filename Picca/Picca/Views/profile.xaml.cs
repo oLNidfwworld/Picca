@@ -15,6 +15,12 @@ namespace Picca.Views
         public profile()
         {
             InitializeComponent();
+
+        }
+
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+
         }
     }
 }

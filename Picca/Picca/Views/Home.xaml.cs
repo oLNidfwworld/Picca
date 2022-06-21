@@ -1,5 +1,6 @@
 ﻿using Picca.Models;
 using Picca.ViewModels;
+using Rg.Plugins.Popup.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +31,7 @@ namespace Picca.Views
             {
                 food = FoodItems.SelectedItem as Food;
                 FoodItems.SelectedItem = null;
-                Shell.Current.Navigation.PushAsync(new AboutFoodPage(food));
+                Shell.Current.Navigation.PushPopupAsync(new AboutFoodPage(food));
 
             }
         }

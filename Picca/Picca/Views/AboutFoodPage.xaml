@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<popup:PopupPage  xmlns:popup="http://rotorgames.com" xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Picca.Views.AboutFoodPage"
              BackgroundColor="Transparent"
@@ -7,8 +7,7 @@
              xmlns:pankake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              >
-    <ContentPage.Content>
-        <pankake:PancakeView Background="#6b1d12" Opacity="1" CornerRadius="30,30,0,0" HeightRequest="400">
+        <pankake:PancakeView Background="#6b1d12" Opacity="1" Margin="0,75,0,0" CornerRadius="30,30,0,0" HeightRequest="400">
             <Grid BackgroundColor="#9A3123" Padding="20,10" ColumnSpacing="0" RowSpacing="0">
                 <StackLayout Spacing="0">
                     <ImageButton HorizontalOptions="EndAndExpand" xct:TouchEffect.AnimationEasing="{x:Static Easing.Linear}" xct:TouchEffect.PressedOpacity="0.7" xct:ShadowEffect.Radius="30" Clicked="ImageButton_Clicked" VerticalOptions="Center" Source="cross.png" BackgroundColor="Transparent" WidthRequest="50"></ImageButton>
@@ -24,5 +23,4 @@
                 </StackLayout>
             </Grid>
         </pankake:PancakeView>
-    </ContentPage.Content>
-</ContentPage>
+</popup:PopupPage>

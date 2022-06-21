@@ -3,8 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="Picca.Views.MorePage"
              Shell.NavBarIsVisible="False"
-             BackgroundColor="#9A3123">
-    <ContentPage.Content>
+             BackgroundColor="#9A3123"
+             Appearing="ContentPage_Appearing">
+    <ContentPage.Content
+        >
         <StackLayout>
             <StackLayout BackgroundColor="#6b1d12" Orientation="Horizontal" HeightRequest="80">
                 <Label   Text="Подробнее" FontSize="40" Margin="10, 0,0,0" VerticalOptions="Center" TextColor="White" FontFamily="Serif"></Label>
@@ -15,6 +17,8 @@
                     </StackLayout>
                 </Frame>
             </StackLayout>
+            <Label HorizontalOptions="Center" VerticalOptions="Center" FontSize="30" TextColor="White" x:Name="PrivetLabel"></Label>
+
             <StackLayout Padding="10">
                 <Frame xct:TouchEffect.PressedAnimationEasing="{x:Static Easing.SpringOut}" xct:TouchEffect.AnimationDuration="250" xct:TouchEffect.PressedOpacity="0.7" HeightRequest="40" xct:CornerRadiusEffect.CornerRadius="50" BorderColor="Transparent">
                     <StackLayout Orientation="Horizontal" VerticalOptions="Center">
@@ -39,30 +43,25 @@
                     </StackLayout>
                 </Frame>
                 <Grid HeightRequest="3" BackgroundColor="Black" Opacity="0.4"></Grid>
-                <Frame xct:TouchEffect.PressedAnimationEasing="{x:Static Easing.SpringOut}" xct:TouchEffect.AnimationDuration="250" xct:TouchEffect.PressedOpacity="0.7" BackgroundColor="Transparent">
-                    <StackLayout Orientation="Horizontal" HeightRequest="30" VerticalOptions="Center">
-                        <Label VerticalOptions="Center"  TextColor="White" FontSize="19"  FontFamily="Serif">Вакансии</Label>
-                        <Image Source="rightarrow.png" HorizontalOptions="EndAndExpand"></Image>
-                    </StackLayout>
-                </Frame>
-                <Grid  HeightRequest="3" BackgroundColor="Black" Opacity="0.4"></Grid>
+
 
                 <Frame xct:TouchEffect.PressedAnimationEasing="{x:Static Easing.SpringOut}" xct:TouchEffect.AnimationDuration="250" xct:TouchEffect.PressedOpacity="0.7" BackgroundColor="Transparent">
                     <StackLayout Orientation="Horizontal" HeightRequest="30" VerticalOptions="Center">
-                        <Label VerticalOptions="Center"  TextColor="White" FontSize="19" FontFamily="Serif">Служба поддержки</Label>
-                        <Image Source="rightarrow.png" HorizontalOptions="EndAndExpand"></Image>
-                    </StackLayout>
-                </Frame>
-                <Grid HeightRequest="3" BackgroundColor="Black" Opacity="0.4"></Grid>
-
-                <Frame xct:TouchEffect.PressedAnimationEasing="{x:Static Easing.SpringOut}" xct:TouchEffect.AnimationDuration="250" xct:TouchEffect.PressedOpacity="0.7" BackgroundColor="Transparent">
-                    <StackLayout Orientation="Horizontal" HeightRequest="30" VerticalOptions="Center">
-                        <Label VerticalOptions="Center"  TextColor="White" FontSize="19"  FontFamily="Serif">FAQ</Label>
+                        <Label VerticalOptions="Center"  TextColor="White" FontSize="19"  FontFamily="Serif">О нас</Label>
                         <Image Source="rightarrow.png" HorizontalOptions="EndAndExpand"  ></Image>
                     </StackLayout>
                 </Frame>
                 <Grid HeightRequest="3" BackgroundColor="Black" Opacity="0.4"></Grid>
-
+                <Frame xct:TouchEffect.PressedAnimationEasing="{x:Static Easing.SpringOut}" xct:TouchEffect.AnimationDuration="250" xct:TouchEffect.PressedOpacity="0.7" BackgroundColor="Transparent">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="FrameOut_Tapped"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                    <StackLayout Orientation="Horizontal" HeightRequest="30" VerticalOptions="Center">
+                        <Label VerticalOptions="Center"  TextColor="CornflowerBlue" FontSize="19"  FontFamily="Serif">Выйти из аккаунта</Label>
+                        <Image Source="rightarrow.png" HorizontalOptions="EndAndExpand"  ></Image>
+                    </StackLayout>
+                </Frame>
+                <Grid HeightRequest="3" BackgroundColor="Black" Opacity="0.4"></Grid>
             </StackLayout>
            
         </StackLayout>
