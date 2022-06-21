@@ -17,11 +17,11 @@
                 </Frame>
             </StackLayout>
             <xct:TabView HeightRequest="800" BackgroundColor="#9A3123" Padding="0" Margin="0" >
-               
-                <xct:TabViewItem Text="Адреса" BackgroundColor="#6b1d12" TextColor="White" TextColorSelected="#FA4A0C">
+
+                <xct:TabViewItem FontFamily="Serif" Text="Адреса" BackgroundColor="#6b1d12" TextColor="White" TextColorSelected="#FA4A0C">
                     <xct:TabViewItem.Content>
                         <StackLayout>
-                            <Button Text="Добавить новый адрес" CornerRadius="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="300" Margin="10" Background="green"></Button>
+                            <Button Text="Добавить новый адрес" FontFamily="Serif" CornerRadius="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="300" Margin="10" Background="green"></Button>
                             <CollectionView x:Name="CoollAdress" SelectionMode="Single">
                                 <CollectionView.ItemsLayout>
                                     <GridItemsLayout Span="1" Orientation="Vertical"></GridItemsLayout>
@@ -31,7 +31,7 @@
                                     <DataTemplate>
                                         <Grid HeightRequest="130">
                                             <StackLayout Orientation="Horizontal">
-                                                <Label Text="{Binding Adress}" HorizontalOptions="StartAndExpand" VerticalOptions="Center"></Label>
+                                                <Label FontFamily="Serif" Text="{Binding Adress}" HorizontalOptions="StartAndExpand" VerticalOptions="Center"></Label>
                                                 <Grid HeightRequest="2" BackgroundColor="Orange" WidthRequest="5" HorizontalOptions="EndAndExpand" VerticalOptions="Center">
                                                     <Grid.GestureRecognizers>
                                                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped">
@@ -50,7 +50,7 @@
                     </xct:TabViewItem.Content>
 
                 </xct:TabViewItem>
-                <xct:TabViewItem Text="Карты" BackgroundColor="#6b1d12" TextColor="White" TextColorSelected="#FA4A0C">
+                <xct:TabViewItem FontFamily="Serif" Text="Карты" BackgroundColor="#6b1d12" TextColor="White" TextColorSelected="#FA4A0C">
                     <xct:TabViewItem.Content>
                         <StackLayout>
                             <Button Text="Добавить новую карту" CornerRadius="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="300" Margin="10" Background="green"></Button>

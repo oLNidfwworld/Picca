@@ -16,10 +16,10 @@
         </StackLayout>
             <StackLayout Orientation="Horizontal" Spacing="0" HorizontalOptions="Center" Margin="0,20,0,0">
                 <Frame Padding="0" Margin="0" Background="#6b1d12" WidthRequest="150" HeightRequest="40" BorderColor="Transparent" xct:CornerRadiusEffect.CornerRadius="20,0,20,0" >
-                    <Label TextColor="White" HorizontalOptions="Center" VerticalOptions="Center">Самовывоз</Label>
+                    <Label  FontFamily="Serif" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center">Самовывоз</Label>
                 </Frame>
                 <Frame Padding="0" Margin="0" Background="#6b1d12" WidthRequest="150" HeightRequest="40" BorderColor="Transparent" xct:CornerRadiusEffect.CornerRadius="0,20,0,20">
-                    <Label TextColor="White" HorizontalOptions="Center" VerticalOptions="Center">Доставка</Label>
+                    <Label FontFamily="Serif" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center">Доставка</Label>
                 </Frame>
             </StackLayout>
         </StackLayout>

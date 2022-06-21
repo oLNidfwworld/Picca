@@ -67,7 +67,7 @@
                             </GridItemsLayout>
                         </CollectionView.ItemsLayout>
                             <CollectionView.Header>
-                                <SearchBar xct:IconTintColorEffect.TintColor="Black" CancelButtonColor="#FCF2F0" TextColor="Black" PlaceholderColor="#FCF2F0" Text="{Binding FileterName}" xct:CornerRadiusEffect.CornerRadius="20" Placeholder="Поиск по названию" Background="#FC998A"></SearchBar>
+                                <SearchBar xct:IconTintColorEffect.TintColor="Black" FontFamily="Serif" CancelButtonColor="#FCF2F0" TextColor="Black" PlaceholderColor="#FCF2F0" Text="{Binding FileterName}" xct:CornerRadiusEffect.CornerRadius="20" Placeholder="Поиск по названию" Background="#FC998A"></SearchBar>
                             </CollectionView.Header>
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
@@ -91,9 +91,9 @@
                                             </Grid.ColumnDefinitions>
                                             <Image VerticalOptions="Center" Grid.Column="0" Source="{Binding imgFood}"></Image>
                                             <StackLayout VerticalOptions="Center" Orientation="Vertical" Grid.Column="1">
-                                                <Label Text="{Binding Name}" TextColor="Black" FontSize="20"></Label>
-                                                <Label Text="{Binding Description}" MaxLines="4" TextColor="Gray"></Label>
-                                                <Label Text="{Binding StringFormat='{0} Р', Path=price}" TextColor="Black" FontSize="20"></Label>
+                                                 <Label FontFamily="Serif" Text="{Binding Name}" TextColor="Black" FontSize="20"></Label>
+                                                 <Label FontFamily="Serif" Text="{Binding Description}" MaxLines="3" TextColor="Gray"></Label>
+                                                 <Label FontFamily="Serif" Text="{Binding StringFormat='{0} Р', Path=price}" TextColor="Black" FontSize="20"></Label>
                                             </StackLayout>
                                         </Grid>
                                     </Frame>

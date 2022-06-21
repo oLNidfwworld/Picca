@@ -17,7 +17,7 @@
                     </StackLayout>
                 </Frame>
             </StackLayout>
-            <Label HorizontalOptions="Center" VerticalOptions="Center" FontSize="30" TextColor="White" x:Name="PrivetLabel"></Label>
+            <Label HorizontalOptions="Center" FontFamily="Serif" VerticalOptions="Center" FontSize="30" TextColor="White" x:Name="PrivetLabel"></Label>
 
             <StackLayout Padding="10">
                 <Frame xct:TouchEffect.PressedAnimationEasing="{x:Static Easing.SpringOut}" xct:TouchEffect.AnimationDuration="250" xct:TouchEffect.PressedOpacity="0.7" HeightRequest="40" xct:CornerRadiusEffect.CornerRadius="50" BorderColor="Transparent">
