@@ -3,8 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Picca.Views.Cart"
              Shell.NavBarIsVisible="False"
+             xmlns:pancacke ="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              Background="#9A3123"
-             xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             Appearing="ContentPage_Appearing">
     <ContentPage.Content>
         <StackLayout Spacing="0">
             
@@ -22,6 +24,70 @@
                     <Label FontFamily="Serif" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center">Доставка</Label>
                 </Frame>
             </StackLayout>
+
+            <ScrollView Grid.Row="0">
+                <CollectionView x:Name="cw" ItemsSource="{Binding  ItemsCart}"
+                            VerticalOptions="FillAndExpand"
+                            VerticalScrollBarVisibility="Never"
+                            SelectionMode="Multiple"
+                                SelectionChanged="cw_SelectionChanged_1"
+                            ItemsLayout="VerticalList"
+                            
+                            >
+
+                    <CollectionView.ItemTemplate  >
+
+                        <DataTemplate  >
+                            <Grid HeightRequest="170">
+                                <Frame Margin="10" CornerRadius="10" BorderColor="LightGray" Background="White" >
+                                  
+                                    <Grid>
+
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        
+                                        <Image Source="{Binding imgFood}" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" ></Image>
+                                        <Label Grid.Column="2" Grid.Row="0" Text="{Binding Name}"  ></Label>
+                                        <Label Grid.Column="2" Grid.Row="1" >
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Цена: " ></Span>
+                                                    <Span Text="{Binding price}" ></Span>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label Grid.Column="2" Grid.Row="2" >
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Кол-во в корзине: " ></Span>
+                                                    <Span Text="{Binding count}" ></Span>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </Grid>
+
+                                </Frame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+                
+             </ScrollView>
+            <pancacke:PancakeView Grid.Row="1" Grid.RowSpan="2" BackgroundColor="LightGray" CornerRadius="20,20,0,0">
+                <StackLayout>
+                    <Button  Margin="15 " Text="Удалить выделенные"  Clicked="Button_Clicked"></Button>
+                    <Button  Margin="15 " Text="Купить" Command="{Binding GoToConfirmCommand}" ></Button>
+                </StackLayout>
+            </pancacke:PancakeView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

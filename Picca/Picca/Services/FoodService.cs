@@ -107,6 +107,13 @@ namespace Picca.Services
             return food;
 
         }
-        
+
+        public async Task<Food> GetFoodByName(string name)
+        {
+            var item = (await GetFood()).Where(p => p.Name == name).FirstOrDefault();
+
+            return item;
+        }
+
     }
 }
