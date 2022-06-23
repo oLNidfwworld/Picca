@@ -25,19 +25,32 @@ namespace Picca.Views
             list = new List<object>();
         }
 
-        private void ContentPage_Appearing(object sender, EventArgs e)
+        private async void ContentPage_Appearing(object sender, EventArgs e)
         {
             wm.ItemsCart.Clear();
             wm.GetItems();
+            var listbasket = await new BasketService().GetBasketAsync();
+            if(listbasket.Count == 0)
+            {
+                korzinapusta.IsVisible = true;
+                coolvisible.IsVisible = false;
+            }
+            else
+            {
+                korzinapusta.IsVisible = false;
+                coolvisible.IsVisible = true;
+            }
+
         }
 
         private void cw_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-            if (cw.SelectedItems != null)
+            if (COLLCart.SelectedItems != null)
             {
                 list = e.CurrentSelection.ToList();
             }
-            
+            var item = COLLCart.SelectedItem as Basket;
+           
             
             
         }
@@ -47,18 +60,49 @@ namespace Picca.Views
             
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
+       
+
+        private async void plus_Clicked(object sender, EventArgs e)
         {
-            
-            await Shell.Current.DisplayAlert("ХУЙ",list.Capacity.ToString(),"OK");
-            foreach (var item in list)
+            await new BasketService().UpdateBasket(COLLCart.SelectedItem as Basket, "plus");
+            var selecteditem = COLLCart.SelectedItem as Basket;
+            selecteditem.count = selecteditem.count + 1;
+            COLLCart.SelectedItem = selecteditem;
+            wm.ItemsCart.Clear();
+            wm.GetItems();
+
+        }
+        private async void minus_Clicked_1(object sender, EventArgs e)
+        {
+            await new BasketService().UpdateBasket(COLLCart.SelectedItem as Basket, "minus");
+            var selecteditem = COLLCart.SelectedItem as Basket;
+            selecteditem.count = selecteditem.count - 1;
+            COLLCart.SelectedItem = selecteditem;
+            if(selecteditem.count == 0)
             {
-                await new BasketService().RemoveCartItemAsync((item as Basket).Name);
-                wm.ItemsCart.Remove(item as Basket);
+                wm.ItemsCart.Clear();
+                wm.GetItems();
             }
-            list.Clear();
-            cw.SelectedItems = null;
-            await Shell.Current.DisplayAlert("Успешно", "Товары убраны из корзины", "OK");
+            wm.ItemsCart.Clear();
+            wm.GetItems();
+
+        }
+
+
+        private async void Button_Clicked_1(object sender, EventArgs e)
+        {
+            await Shell.Current.Navigation.PushModalAsync(new OrderPage());
+        }
+
+        private async void trash_Clicked_1(object sender, EventArgs e)
+        {
+            await new BasketService().RemoveCartItemAsync(COLLCart.SelectedItem as Basket);
+            wm.ItemsCart.Clear();
+            wm.GetItems();
+        }
+        private async void Back_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.Navigation.PopModalAsync();
         }
     }
 }

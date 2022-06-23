@@ -12,31 +12,42 @@
                 <Label   Text="Подробнее" FontSize="40" Margin="10, 0,0,0" VerticalOptions="Center" TextColor="White" FontFamily="Serif"></Label>
                 <Frame HorizontalOptions="EndAndExpand" HeightRequest="50" Padding="0" BackgroundColor="NavajoWhite" CornerRadius="10" Margin="0,0,10,0" VerticalOptions="Center">
                     <StackLayout Orientation="Horizontal">
-                        <Label FontSize="18"  TextColor="Black"  FontFamily="Serif" VerticalOptions="CenterAndExpand" IsVisible="hidden"></Label>
-                        <Image Source="basket32" HeightRequest="32" VerticalOptions="Center"></Image>
+                        <Label x:Name="CountInCart" FontSize="18"  TextColor="Black"  FontFamily="Serif" VerticalOptions="CenterAndExpand" IsVisible="hidden"></Label>
+                        <ImageButton BackgroundColor="Transparent"  Clicked="Cart_Clicked" Source="basket32" HeightRequest="32" VerticalOptions="Center"></ImageButton>
                     </StackLayout>
                 </Frame>
             </StackLayout>
             <Label HorizontalOptions="Center" FontFamily="Serif" VerticalOptions="Center" FontSize="30" TextColor="White" x:Name="PrivetLabel"></Label>
 
             <StackLayout Padding="10">
-                <Frame xct:TouchEffect.PressedAnimationEasing="{x:Static Easing.SpringOut}" xct:TouchEffect.AnimationDuration="250" xct:TouchEffect.PressedOpacity="0.7" HeightRequest="40" xct:CornerRadiusEffect.CornerRadius="50" BorderColor="Transparent">
+                <Frame xct:TouchEffect.PressedAnimationEasing="{x:Static Easing.SpringOut}" xct:TouchEffect.PressedScale="1.01" Background="white"  xct:TouchEffect.AnimationDuration="250" xct:TouchEffect.PressedOpacity="0.7" HeightRequest="40" xct:CornerRadiusEffect.CornerRadius="50" BorderColor="Transparent">
                     <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                        
                         <Image VerticalOptions="Center" Source="account.png"></Image>
                         <Label VerticalOptions="Center" TextColor="Black" FontSize="19"  FontFamily="Serif">Перейти в профиль</Label>
                         <Image Source="rightarrow.png" HorizontalOptions="EndAndExpand"></Image>
                     </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Account_Tapped"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
                 </Frame>
             </StackLayout>
             <StackLayout>
-                <Frame xct:TouchEffect.PressedAnimationEasing="{x:Static Easing.SpringOut}" xct:TouchEffect.AnimationDuration="250" xct:TouchEffect.PressedOpacity="0.7"  BackgroundColor="Transparent">
+                <Frame xct:TouchEffect.PressedAnimationEasing="{x:Static Easing.SpringOut}" xct:TouchEffect.PressedScale="1.05" xct:TouchEffect.AnimationDuration="250" xct:TouchEffect.PressedOpacity="0.7"  BackgroundColor="Transparent">
                     <StackLayout Orientation="Horizontal" HeightRequest="30" VerticalOptions="Center">
+                        
                         <Label VerticalOptions="Center"  TextColor="White" FontSize="19"  FontFamily="Serif">Мои заказы</Label>
                         <Image Source="rightarrow.png" HorizontalOptions="EndAndExpand"></Image>
+                        <Grid HeightRequest="3" BackgroundColor="Black" Opacity="0.4"></Grid>
+
                     </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="MyOrders_Tapped"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
                 </Frame>
                 <Grid HeightRequest="3" BackgroundColor="Black" Opacity="0.4"></Grid>
-                <Frame xct:TouchEffect.PressedAnimationEasing="{x:Static Easing.SpringOut}" xct:TouchEffect.AnimationDuration="250" xct:TouchEffect.PressedOpacity="0.7" BackgroundColor="Transparent">
+
+                <Frame xct:TouchEffect.PressedAnimationEasing="{x:Static Easing.SpringOut}" xct:TouchEffect.PressedScale="1.05" xct:TouchEffect.AnimationDuration="250" xct:TouchEffect.PressedOpacity="0.7" BackgroundColor="Transparent">
                     <StackLayout Orientation="Horizontal" HeightRequest="30" VerticalOptions="Center">
                         <Label VerticalOptions="Center"  TextColor="White" FontSize="19"  FontFamily="Serif">Акции</Label>
                         <Image Source="rightarrow.png" HorizontalOptions="EndAndExpand"></Image>
@@ -45,14 +56,14 @@
                 <Grid HeightRequest="3" BackgroundColor="Black" Opacity="0.4"></Grid>
 
 
-                <Frame xct:TouchEffect.PressedAnimationEasing="{x:Static Easing.SpringOut}" xct:TouchEffect.AnimationDuration="250" xct:TouchEffect.PressedOpacity="0.7" BackgroundColor="Transparent">
+                <Frame xct:TouchEffect.PressedAnimationEasing="{x:Static Easing.SpringOut}" xct:TouchEffect.PressedScale="1.05" xct:TouchEffect.AnimationDuration="250" xct:TouchEffect.PressedOpacity="0.7" BackgroundColor="Transparent">
                     <StackLayout Orientation="Horizontal" HeightRequest="30" VerticalOptions="Center">
                         <Label VerticalOptions="Center"  TextColor="White" FontSize="19"  FontFamily="Serif">О нас</Label>
                         <Image Source="rightarrow.png" HorizontalOptions="EndAndExpand"  ></Image>
                     </StackLayout>
                 </Frame>
                 <Grid HeightRequest="3" BackgroundColor="Black" Opacity="0.4"></Grid>
-                <Frame xct:TouchEffect.PressedAnimationEasing="{x:Static Easing.SpringOut}" xct:TouchEffect.AnimationDuration="250" xct:TouchEffect.PressedOpacity="0.7" BackgroundColor="Transparent">
+                <Frame xct:TouchEffect.PressedAnimationEasing="{x:Static Easing.SpringOut}" xct:TouchEffect.PressedScale="1.05" xct:TouchEffect.AnimationDuration="250" xct:TouchEffect.PressedOpacity="0.7" BackgroundColor="Transparent">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="FrameOut_Tapped"></TapGestureRecognizer>
                     </Frame.GestureRecognizers>

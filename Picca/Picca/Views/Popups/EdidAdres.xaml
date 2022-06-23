@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pancacke="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="Picca.Views.Popups.EdidAdres"
+             Shell.NavBarIsVisible="False"
+             Background="transparent"
+                          xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             BackgroundColor="Transparent">
+ 
+    <ContentPage.Content>
+        <StackLayout>
+            <Label>gdfg</Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

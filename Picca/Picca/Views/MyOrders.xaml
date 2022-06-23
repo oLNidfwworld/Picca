@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Picca.Views.MyOrders"
+             Appearing="ContentPage_Appearing"
+             Shell.NavBarIsVisible="False"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
+    <ContentPage.Content>
+        <StackLayout Spacing="0">
+            <StackLayout Spacing="0" Padding="0" BackgroundColor="#6b1d12" Orientation="Horizontal" HeightRequest="80">
+                <ImageButton Clicked="Back_Clicked" BackgroundColor="Transparent" Source="leftarrow.png" HorizontalOptions="Start" WidthRequest="30" Margin="10,0,0,0" ></ImageButton>
+                <Label   HorizontalOptions="CenterAndExpand" Text="Заказы" FontSize="40"  VerticalOptions="Center" TextColor="White" FontFamily="Serif"></Label>
+
+            </StackLayout>
+            <CollectionView SelectionMode="Single" SelectionChanged="CollOrders_SelectionChanged" x:Name="CollOrders" BackgroundColor="#9A3123">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Frame BackgroundColor="#6b1d12" CornerRadius="20" xct:TouchEffect.PressedAnimationEasing="{x:Static Easing.SpringOut}" xct:TouchEffect.PressedScale="1.01" xct:TouchEffect.AnimationDuration="250" xct:TouchEffect.PressedOpacity="0.7">
+                                <StackLayout Orientation="Vertical">
+                                    <StackLayout>
+                                        <Label FontSize="30" FontFamily="Serif" TextColor="white" Text="{Binding order_number , StringFormat='Номер: {0}'}">
+
+                                        </Label>
+                                    </StackLayout>
+                                  
+                                    <StackLayout HorizontalOptions="StartAndExpand" Orientation="Vertical">
+                                        <Label Text="{Binding price , StringFormat='Цена: {0} Р'}" FontSize="30" FontFamily="Serif" TextColor="white"></Label>
+                                        <Label Text="{Binding status , StringFormat='Статус: {0}'}" FontSize="30" FontFamily="Serif" TextColor="white"></Label>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

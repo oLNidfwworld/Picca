@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Picca.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,19 @@ namespace Picca.Views
 
         }
 
-      
+        private async void Cart_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.Navigation.PushModalAsync(new Cart());
+        }
+
+        private async void ContentPage_Appearing(object sender, EventArgs e)
+        {
+            var incartcount = await new BasketService().GetBasketAsync();
+            if (incartcount.Count != 0)
+            {
+                CountInCart.Text = Convert.ToString(incartcount.Count);
+                CountInCart.IsVisible = true;
+            }
+        }
     }
 }

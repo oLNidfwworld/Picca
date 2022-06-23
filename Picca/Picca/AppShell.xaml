@@ -2,6 +2,7 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:Picca.Views"
+        xmlns:localPopups="clr-namespace:Picca.Views.Popups"
        Title="Picca"
        x:Class="Picca.AppShell">
 
@@ -35,10 +36,9 @@
     </TabBar>
     <TabBar>
         <ShellContent Title="Главная" Icon="home_icon.png" Route="Home" ContentTemplate="{DataTemplate local:Home}" />
-        <ShellContent Title="Рестораны" Icon="coupon.png" Route="Coupons" ContentTemplate="{DataTemplate local:Restorans}" />
-        <ShellContent Title="Подробнее" Icon="ic_sharp_history.png" Route="History" ContentTemplate="{DataTemplate local:MorePage}" />
-        <ShellContent Title="Profile" Icon="ic_sharp_history.png" Route="Profile" ContentTemplate="{DataTemplate local:profile}" />
-        <ShellContent Title="Cart" Icon="ic_sharp_history.png" Route="cart" ContentTemplate="{DataTemplate local:Cart}" />
+        <ShellContent Title="Рестораны" Icon="map.png" Route="Coupons" ContentTemplate="{DataTemplate local:Restorans}" />
+        <ShellContent Title="Подробнее" Icon="dots.png" Route="History" ContentTemplate="{DataTemplate local:MorePage}" />
+
 
     </TabBar>
 

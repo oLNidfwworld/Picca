@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:xct="http://xamarin.com/schemas/2020/toolkit" xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              x:Class="Picca.Views.Restorans"
-             Shell.NavBarIsVisible="False">
+             Shell.NavBarIsVisible="False"
+            Appearing="ContentPage_Appearing">
     <ContentPage.Content>
         <StackLayout Spacing="0">
             <StackLayout BackgroundColor="#6b1d12" Orientation="Horizontal" HeightRequest="80">
@@ -10,8 +11,8 @@
 
                 <Frame HorizontalOptions="EndAndExpand" HeightRequest="50" Padding="0" BackgroundColor="NavajoWhite" CornerRadius="10" Margin="0,0,10,0" VerticalOptions="Center">
                     <StackLayout Orientation="Horizontal">
-                        <Label FontSize="18"  TextColor="Black"  FontFamily="Serif" VerticalOptions="CenterAndExpand" IsVisible="hidden"></Label>
-                        <Image Source="basket32" HeightRequest="32" VerticalOptions="Center"></Image>
+                        <Label x:Name="CountInCart" FontSize="18"  TextColor="Black"  FontFamily="Serif" VerticalOptions="CenterAndExpand" IsVisible="hidden"></Label>
+                        <ImageButton Background="transparent" Clicked="Cart_Clicked" Source="basket32" HeightRequest="32" VerticalOptions="Center"></ImageButton>
                     </StackLayout>
                 </Frame>
             </StackLayout>

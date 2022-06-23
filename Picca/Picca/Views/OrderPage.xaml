@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Picca.Views.OrderPage"
+             Background="#6b1d12"
+             Shell.NavBarIsVisible="False"
+             Appearing="ContentPage_Appearing"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:combo ="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms">
+    <ContentPage.Content>
+        <Grid>
+            <ImageButton Clicked="ImageButton_Clicked" Source="cross" WidthRequest="50" VerticalOptions="StartAndExpand" Margin="30" HorizontalOptions="EndAndExpand" BackgroundColor="Transparent"></ImageButton>
+
+            <StackLayout  Margin="0,70,0,0" Padding="10" VerticalOptions="StartAndExpand">
+                <Label Text="Заказ" HorizontalOptions="Center" FontFamily="Serif" FontSize="40" TextColor="White"></Label>
+                <Label x:Name="summa" Text="Общая сумма:" FontSize="30" FontFamily="Serif" HorizontalOptions="StartAndExpand"  TextColor="White"></Label>
+                <Label Text="В корзине:" FontSize="30" FontFamily="Serif" HorizontalOptions="StartAndExpand"  TextColor="White"></Label>
+
+                <CollectionView HeightRequest="200" x:Name="CollItems" HorizontalOptions="CenterAndExpand"  VerticalOptions="StartAndExpand">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="5">
+                                <Grid WidthRequest="400" BackgroundColor="#9A3123" xct:CornerRadiusEffect.CornerRadius="30" Margin="0,0,0,0"  HeightRequest="50">
+                                    <StackLayout Orientation="Horizontal" Padding="10">
+                                        <Image WidthRequest="40" VerticalOptions="Center" Source="{Binding imgFood}"></Image>
+                                        <Label VerticalOptions="Center" Text="{Binding Name}" FontSize="20" TextColor="White" FontFamily="Serif"   ></Label>
+                                        <StackLayout VerticalOptions="Center" HorizontalOptions="EndAndExpand" Orientation="Horizontal">
+                                            <Label  Text="{Binding count, StringFormat='{0}X'}" Margin="0,0,20,0"      FontSize="20" TextColor="White" FontFamily="Serif" >
+                                                
+                                            </Label>
+                                            <Label Text="{Binding price, StringFormat='Цена: {0} Р'}"  FontSize="20" TextColor="White" FontFamily="Serif"></Label>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Grid>
+                            </Grid>
+                           
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    
+                </CollectionView>
+                <Picker BackgroundColor="OrangeRed" xct:CornerRadiusEffect.CornerRadius="10"  Title="Выберите адрес"
+                         x:Name="CombAdress"
+                                  TitleColor="Black"
+                        
+                                 FontFamily="SansRegular"
+                                 WidthRequest="380"
+                                 HorizontalTextAlignment="Center" 
+                                 Opacity="0.8"
+                                 SelectedIndex="0"
+                                 ItemDisplayBinding="{Binding Adres}"
+                                                                  TextColor="White"
+                                >
+
+                </Picker>
+                <Picker BackgroundColor="OrangeRed" xct:CornerRadiusEffect.CornerRadius="10"  Title="Выберите карту оплаты"
+                         x:Name="CombСard"
+                                 TitleColor="Black"
+                                 FontFamily="SansRegular"
+                                 WidthRequest="380"
+                                 HorizontalTextAlignment="Center" 
+                                 Opacity="0.8"
+                                 SelectedIndex="0"
+                                 ItemDisplayBinding="{Binding NumberCard}"
+                                 TextColor="White"
+                                >
+
+                </Picker>
+                <Button Text="Заказать" BackgroundColor="Green" Clicked="Button_Clicked" CornerRadius="20" VerticalOptions="EndAndExpand" Margin="0,30,0,0"></Button>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

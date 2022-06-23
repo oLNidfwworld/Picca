@@ -40,6 +40,24 @@ namespace Picca.Views
             string login = Preferences.Get("Login", string.Empty);
             var user = await new UserService().GetUserByLogin(login);
             PrivetLabel.Text = $"Привет, {user.Name}";
+            var incartcount = await new BasketService().GetBasketAsync();
+            if (incartcount.Count != 0)
+            {
+                CountInCart.Text = Convert.ToString(incartcount.Count);
+                CountInCart.IsVisible = true;
+            }
+        }
+        private async void Account_Tapped(object sender, EventArgs e)
+        {
+            await Shell.Current.Navigation.PushModalAsync(new profile());
+        }
+        private async void MyOrders_Tapped(object sender, EventArgs e)
+        {
+            await Shell.Current.Navigation.PushModalAsync(new MyOrders());
+        }
+        private async void Cart_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.Navigation.PushModalAsync(new Cart());
         }
     }
 }

@@ -15,6 +15,7 @@ namespace Picca.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AboutFoodPage : Rg.Plugins.Popup.Pages.PopupPage
     {
+       
         public static string food_name;
         public AboutFoodPage(Food food)
         {
@@ -34,6 +35,7 @@ namespace Picca.Views
         private async void Button_Clicked(object sender, EventArgs e)
         {
             await new BasketService().AddToCart(food_name);
+            await Shell.Current.DisplayAlert("Успешно","Позиция успешно добавлена в корзину", "Ок");
         }
     }
 }

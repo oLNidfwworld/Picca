@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<popup:PopupPage  xmlns:popup="http://rotorgames.com" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Picca.Views.OrdersDetail"
+             Shell.NavBarIsVisible="False"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:pankake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             Appearing="ContentPage_Appearing">
+
+
+    
+    <pankake:PancakeView Background="#6b1d12" Opacity="1" Margin="0,75,0,0" CornerRadius="30,30,0,0" HeightRequest="400">
+        <Grid BackgroundColor="#9A3123" Padding="20,10" ColumnSpacing="0" RowSpacing="0">
+            <StackLayout Spacing="0">
+                <Label x:Name="Number" HorizontalOptions="Center" FontSize="30" FontFamily="Serif" TextColor="White" Text="пывапываиммсичимчсиипа"></Label>
+
+                <Label x:Name="DateOrder" FontSize="20" TextColor="White" FontFamily="Serif" Text="Дата заказа:"></Label>
+                <Label x:Name="SummaTXB" FontSize="20" TextColor="White" FontFamily="Serif" Text="Общая сумма:"></Label>
+                <Label x:Name="Status" FontSize="20" TextColor="White" FontFamily="Serif" Text="Статус:"></Label>
+                <Label  FontSize="25" TextColor="White" FontFamily="Serif" Text="В заказе:"></Label>
+
+                <CollectionView x:Name="CoolOrderItems">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="5">
+                                <Grid WidthRequest="600" BackgroundColor="#6b1d12" xct:CornerRadiusEffect.CornerRadius="30" Margin="0,0,0,0"  HeightRequest="150">
+                                    <StackLayout Orientation="Horizontal" Padding="10">
+                                        <Image WidthRequest="80" VerticalOptions="Center" Source="{Binding imgFood}"></Image>
+                                        <Label VerticalOptions="Center" Text="{Binding Name}" FontSize="25  " TextColor="White" FontFamily="Serif"   ></Label>
+                                        <StackLayout VerticalOptions="Center" HorizontalOptions="EndAndExpand" Orientation="Vertical">
+                                            <Label Text="{Binding price, StringFormat='Цена: {0} Р'}"  FontSize="15" TextColor="White" FontFamily="Serif"></Label>
+                                            <Label  Text="{Binding count, StringFormat='{0}X'}" HorizontalOptions="Center"     FontSize="15" TextColor="White" FontFamily="Serif">
+                                                
+                                            </Label>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Grid>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </StackLayout>
+        </Grid>
+    </pankake:PancakeView>
+</popup:PopupPage>

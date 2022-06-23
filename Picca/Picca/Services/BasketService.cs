@@ -28,8 +28,8 @@ namespace Picca.Services
 
         public async Task AddToCart(string foodname)
         {
-            string xyu = Preferences.Get("Login", string.Empty);
-            var cureent_user_id = await new UserService().GetUserByLogin(xyu);
+            string user = Preferences.Get("Login", string.Empty);
+            var cureent_user_id = await new UserService().GetUserByLogin(user);
             var food = await new FoodService().GetFoodByName(foodname);
             if (await IsItemInWishList(foodname))
             {
@@ -51,6 +51,40 @@ namespace Picca.Services
             }
 
         }
+        public async Task<bool> UpdateBasket(Basket basket, string action)
+        {
+            var user = await new UserService().GetUserByLogin(Preferences.Get("Login", string.Empty));
+          
+            var keytema = (await client.Child("Basket")
+                .OnceAsync<Basket>())
+                .FirstOrDefault
+                (a => a.Object.user_id == basket.user_id && a.Object.Name == basket.Name);
+            if (action == "minus")
+            {
+                if (basket.count == 1)
+                {
+                   await RemoveCartItemAsync(basket);
+                }
+                else
+                {
+                    Basket tema = new Basket() { Name = basket.Name, count = basket.count - 1, user_id = user.id_user, id = basket.id, imgFood = basket.imgFood, price = basket.price };
+                    await client.Child("Basket")
+                        .Child(keytema.Key)
+                        .PutAsync(tema);
+                }
+             
+            }
+            else
+            {
+                Basket tema = new Basket() { Name = basket.Name, count = basket.count + 1, user_id = user.id_user, id = basket.id, imgFood = basket.imgFood, price = basket.price };
+                await client.Child("Basket")
+                    .Child(keytema.Key)
+                    .PutAsync(tema);
+            }
+           
+
+            return true;
+        }
 
         public async Task<ObservableCollection<Basket>> GetBasketAsync()
         {
@@ -65,9 +99,9 @@ namespace Picca.Services
             return itemslist;
         }
 
-        public async Task RemoveCartItemAsync(string name)
+        public async Task RemoveCartItemAsync(Basket basket)
         {
-            var toRemoveItem = (await client.Child("Basket").OnceAsync<Basket>()).FirstOrDefault(i => i.Object.Name == name);
+            var toRemoveItem = (await client.Child("Basket").OnceAsync<Basket>()).FirstOrDefault(i => i.Object.Name == basket.Name);
             await client.Child("Basket").Child(toRemoveItem.Key).DeleteAsync();
         }
 

@@ -70,9 +70,9 @@ namespace Picca.Services
 
             
             var food = new ObservableCollection<Food>();
-            if (foodCategories != null)
+            if (foodCategories != null && foodCategories.CategoryName != "Все")
             {
-                var items = (await GetFood()).Where(p => p.id_category == foodCategories.CategoryId && p.Name.Contains(name));
+                var items = (await GetFood()).Where(p => p.id_category == foodCategories.CategoryId && p.Name.ToLowerInvariant().Contains(name));
                 foreach (var item in items)
                 {
                     food.Add(item);
@@ -81,14 +81,14 @@ namespace Picca.Services
             }
             else if (foodCategories == null)
             {
-                var items = (await GetFood()).Where(p => p.Name.Contains(name));
+                var items = (await GetFood()).Where(p => p.Name.ToLowerInvariant().Contains(name));
                 foreach (var item in items)
                 {
                     food.Add(item);
                 }
 
             }
-            else if (string.IsNullOrEmpty(name) && foodCategories == null)
+            else if (string.IsNullOrWhiteSpace(name) && foodCategories == null)
             {
                 var items = await GetFood();
                 foreach (var item in items)
@@ -104,7 +104,7 @@ namespace Picca.Services
                     food.Add(item);
                 }
             }
-            return food;
+          return food;
 
         }
 

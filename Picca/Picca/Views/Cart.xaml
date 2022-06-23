@@ -12,24 +12,21 @@
             
        
         <StackLayout Spacing="0" Padding="0" BackgroundColor="#6b1d12" Orientation="Horizontal" HeightRequest="80">
-            <ImageButton BackgroundColor="Transparent" Source="leftarrow.png" HorizontalOptions="Start" WidthRequest="30" Margin="10,0,0,0" ></ImageButton>
+            <ImageButton Clicked="Back_Clicked" BackgroundColor="Transparent" Source="leftarrow.png" HorizontalOptions="Start" WidthRequest="30" Margin="10,0,0,0" ></ImageButton>
             <Label   HorizontalOptions="CenterAndExpand" Text="Корзина" FontSize="40"  VerticalOptions="Center" TextColor="White" FontFamily="Serif"></Label>
            
         </StackLayout>
-            <StackLayout Orientation="Horizontal" Spacing="0" HorizontalOptions="Center" Margin="0,20,0,0">
-                <Frame Padding="0" Margin="0" Background="#6b1d12" WidthRequest="150" HeightRequest="40" BorderColor="Transparent" xct:CornerRadiusEffect.CornerRadius="20,0,20,0" >
-                    <Label  FontFamily="Serif" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center">Самовывоз</Label>
-                </Frame>
-                <Frame Padding="0" Margin="0" Background="#6b1d12" WidthRequest="150" HeightRequest="40" BorderColor="Transparent" xct:CornerRadiusEffect.CornerRadius="0,20,0,20">
-                    <Label FontFamily="Serif" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center">Доставка</Label>
-                </Frame>
-            </StackLayout>
 
-            <ScrollView Grid.Row="0">
-                <CollectionView x:Name="cw" ItemsSource="{Binding  ItemsCart}"
+            <Grid HeightRequest="500" x:Name="korzinapusta" IsVisible="hidden" HorizontalOptions="Center"  VerticalOptions="Center">
+                <Label FontSize="50" VerticalOptions="Center" FontFamily="Serif" TextColor="#6b1d12">Корзина пуста</Label>
+            </Grid>
+            <ScrollView x:Name="coolvisible" Grid.Row="0" IsVisible="true">
+                <CollectionView HeightRequest="500" x:Name="COLLCart" ItemsSource="{Binding  ItemsCart}"
                             VerticalOptions="FillAndExpand"
                             VerticalScrollBarVisibility="Never"
-                            SelectionMode="Multiple"
+                            SelectionMode="Single"
+                                
+                            
                                 SelectionChanged="cw_SelectionChanged_1"
                             ItemsLayout="VerticalList"
                             
@@ -38,56 +35,69 @@
                     <CollectionView.ItemTemplate  >
 
                         <DataTemplate  >
-                            <Grid HeightRequest="170">
-                                <Frame Margin="10" CornerRadius="10" BorderColor="LightGray" Background="White" >
-                                  
-                                    <Grid>
+                            
+                            <Grid Padding="10">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup Name="CommonStates">
+                                        <VisualState Name="Normal" />
+                                        <VisualState Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="transparent" />
+                                            </VisualState.Setters>
+                                        </VisualState>
 
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition></RowDefinition>
-                                            <RowDefinition></RowDefinition>
-                                            <RowDefinition></RowDefinition>
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"></ColumnDefinition>
-                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                        </Grid.ColumnDefinitions>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Frame Margin="8" Padding="15" Background="white" xct:TouchEffect.PressedScale="1.02" xct:TouchEffect.AnimationDuration="200" CornerRadius="10" BorderColor="LightGray" >
+
+
+                                        <StackLayout Orientation="Horizontal">
+                                            <Image Source="{Binding imgFood}" Grid.Row="0" Grid.Column="0" ></Image>
+
+                                            <StackLayout VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
+                                                <Label Grid.Column="2" Grid.Row="0" Text="{Binding Name}" FontSize="20" TextColor="Black" FontFamily="Serif" ></Label>
+                                                <Label Grid.Column="2" Grid.Row="1" >
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                        <Span Text="Цена: "   FontSize="20" TextColor="Black" FontFamily="Serif" ></Span>
+                                                        <Span Text="{Binding price, StringFormat='{0} Р'}"  FontSize="20" TextColor="Black" FontFamily="Serif" ></Span>
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+                                                <Label Grid.Column="2" Grid.Row="2" >
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                        <Span Text="Кол-во: " TextColor="Black" FontSize="20" FontFamily="Serif"  ></Span>
+                                                        <Span Text="{Binding count}"  TextColor="Black" FontSize="20" FontFamily="Serif" ></Span>
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+
+                                            </StackLayout>
                                         
-                                        <Image Source="{Binding imgFood}" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" ></Image>
-                                        <Label Grid.Column="2" Grid.Row="0" Text="{Binding Name}"  ></Label>
-                                        <Label Grid.Column="2" Grid.Row="1" >
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <Span Text="Цена: " ></Span>
-                                                    <Span Text="{Binding price}" ></Span>
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>
-                                        <Label Grid.Column="2" Grid.Row="2" >
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <Span Text="Кол-во в корзине: " ></Span>
-                                                    <Span Text="{Binding count}" ></Span>
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>
-                                    </Grid>
+                                        </StackLayout>
+                                    </Frame>
+                                <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center">
+                                    <ImageButton  Clicked="plus_Clicked" BackgroundColor="Black" xct:TouchEffect.PressedOpacity="0.5" xct:TouchEffect.AnimationDuration="200" xct:TouchEffect.AnimationEasing="{x:Static Easing.Linear}"  Source="plus" xct:CornerRadiusEffect.CornerRadius="10" WidthRequest="50" Padding="0" Margin="0">
 
-                                </Frame>
+                                    </ImageButton>
+                                    <ImageButton Clicked="minus_Clicked_1" BackgroundColor="Black" xct:TouchEffect.PressedOpacity="0.5" xct:TouchEffect.AnimationDuration="200" xct:TouchEffect.AnimationEasing="{x:Static Easing.Linear}" Source="minus" xct:CornerRadiusEffect.CornerRadius="10" WidthRequest="50" VerticalOptions="EndAndExpand"  Padding="0" Margin="0">
+
+                                    </ImageButton>
+                                    <ImageButton Clicked="trash_Clicked_1" BackgroundColor="Black" xct:TouchEffect.PressedOpacity="0.5" xct:TouchEffect.AnimationDuration="200" xct:TouchEffect.AnimationEasing="{x:Static Easing.Linear}" Source="trash" xct:CornerRadiusEffect.CornerRadius="10" WidthRequest="50" VerticalOptions="EndAndExpand"  Padding="0" Margin="0">
+
+                                    </ImageButton>
+                                </StackLayout>
+
                             </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
 
                 </CollectionView>
 
-                
              </ScrollView>
-            <pancacke:PancakeView Grid.Row="1" Grid.RowSpan="2" BackgroundColor="LightGray" CornerRadius="20,20,0,0">
-                <StackLayout>
-                    <Button  Margin="15 " Text="Удалить выделенные"  Clicked="Button_Clicked"></Button>
-                    <Button  Margin="15 " Text="Купить" Command="{Binding GoToConfirmCommand}" ></Button>
-                </StackLayout>
-            </pancacke:PancakeView>
+            <Button Clicked="Button_Clicked_1" HeightRequest="80" CornerRadius="30" Margin="20" BackgroundColor="#6b1d12" Text="Оформить заказ" FontFamily="Serif" FontSize="25"></Button>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

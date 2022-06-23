@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Picca.Views.Home"
              Shell.NavBarIsVisible="False"
-             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" >
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             Appearing="ContentPage_Appearing">
     <ContentPage.Resources>
     
     </ContentPage.Resources>
@@ -14,8 +15,8 @@
                 <Label   Text="Главная" FontSize="40" Margin="10, 0,0,0" VerticalOptions="Center" TextColor="White" FontFamily="Serif"></Label>
                 <Frame HorizontalOptions="EndAndExpand" HeightRequest="50" Padding="0" BackgroundColor="NavajoWhite" CornerRadius="10" Margin="0,0,10,0" VerticalOptions="Center">
                     <StackLayout Orientation="Horizontal">
-                        <Label FontSize="18"  TextColor="Black"  FontFamily="Serif" VerticalOptions="CenterAndExpand" IsVisible="hidden"></Label>
-                        <Image Source="basket32" HeightRequest="32" VerticalOptions="Center"></Image>
+                        <Label x:Name="CountInCart" FontSize="18"  TextColor="Black"  FontFamily="Serif" VerticalOptions="CenterAndExpand" IsVisible="hidden"></Label>
+                        <ImageButton Clicked="Cart_Clicked" BackgroundColor="Transparent" Source="basket32" HeightRequest="32" VerticalOptions="Center"></ImageButton>
                     </StackLayout>
                 </Frame>
             </StackLayout>
@@ -38,7 +39,7 @@
                             
                             <Grid Margin="10">
 
-                                <StackLayout>
+                                    <StackLayout xct:TouchEffect.PressedScale="1.01">
                                     <Label CharacterSpacing="0"  Text="{Binding CategoryName}" HorizontalOptions="Center" FontSize="30" TextColor="White" FontFamily="Serif"></Label>
                                     <Grid xct:TouchEffect.HoveredBackgroundColor="Red" HeightRequest="10" BackgroundColor="Black">
                                        
@@ -60,18 +61,19 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
                 <StackLayout Grid.Row="1" Padding="10,0,10,0">
-                    <CollectionView VerticalScrollBarVisibility="Never" x:Name="FoodItems"  Background="#9A3123"  SelectionChanged="CollectionView_SelectionChanged"  ItemsSource="{Binding Food}" SelectionMode="Single">
+                        <SearchBar  TextColor="White" xct:IconTintColorEffect.TintColor="Black" FontFamily="Serif" CancelButtonColor="#FCF2F0"  PlaceholderColor="#FCF2F0" Text="{Binding FileterName}" xct:CornerRadiusEffect.CornerRadius="20" Placeholder="Поиск по названию" Background="#FC998A"></SearchBar>
+
+                        <CollectionView VerticalScrollBarVisibility="Never" x:Name="FoodItems"  Background="#9A3123"  SelectionChanged="CollectionView_SelectionChanged"  ItemsSource="{Binding Food}" SelectionMode="Single">
                         <CollectionView.ItemsLayout>
                             <GridItemsLayout   Orientation="Vertical" Span="1" >
 
                             </GridItemsLayout>
                         </CollectionView.ItemsLayout>
-                            <CollectionView.Header>
-                                <SearchBar xct:IconTintColorEffect.TintColor="Black" FontFamily="Serif" CancelButtonColor="#FCF2F0" TextColor="Black" PlaceholderColor="#FCF2F0" Text="{Binding FileterName}" xct:CornerRadiusEffect.CornerRadius="20" Placeholder="Поиск по названию" Background="#FC998A"></SearchBar>
-                            </CollectionView.Header>
+                          
+                        
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <Grid WidthRequest="170"   >
+                                <Grid >
                                     <VisualStateManager.VisualStateGroups>
                                         <VisualStateGroup Name="CommonStates">
                                             <VisualState Name="Normal" />
@@ -83,7 +85,7 @@
 
                                         </VisualStateGroup>
                                     </VisualStateManager.VisualStateGroups>
-                                    <Frame xct:TouchEffect.PressedAnimationEasing="{x:Static Easing.SpringOut}" xct:TouchEffect.AnimationDuration="250" xct:TouchEffect.PressedOpacity="0.7"  xct:CornerRadiusEffect.CornerRadius="20,0,0,20" BackgroundColor="#FFF5F5" HeightRequest="150" MinimumHeightRequest="160"  Margin="10"  xct:ShadowEffect.Color="#9A3123" HasShadow="True">
+                                        <Frame xct:TouchEffect.PressedAnimationEasing="{x:Static Easing.SpringOut}" xct:TouchEffect.PressedScale="1.01" Padding="15" xct:TouchEffect.AnimationDuration="250" xct:TouchEffect.PressedOpacity="0.7"  xct:CornerRadiusEffect.CornerRadius="20,0,0,20" BackgroundColor="#FFF5F5"    Margin="10"  xct:ShadowEffect.Color="#9A3123" HasShadow="True">
                                         <Grid>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="120"></ColumnDefinition>

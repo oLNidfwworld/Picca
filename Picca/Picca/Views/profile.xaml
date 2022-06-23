@@ -2,50 +2,90 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Picca.Views.profile"
-             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-             Shell.NavBarIsVisible="False">
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" xmlns:pancacke="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             Shell.NavBarIsVisible="False"
+             Appearing="ContentPage_Appearing">
     <ContentPage.Content>
         <StackLayout Spacing="0">
             <StackLayout Spacing="0" Padding="0" BackgroundColor="#6b1d12" Orientation="Horizontal" HeightRequest="80">
-                <ImageButton BackgroundColor="Transparent" Source="leftarrow.png" HorizontalOptions="StartAndExpand" WidthRequest="30" Margin="10,0,0,0" ></ImageButton>
+                <ImageButton  Clicked="Back_Clicked" BackgroundColor="Transparent" Source="leftarrow.png" HorizontalOptions="StartAndExpand" WidthRequest="30" Margin="10,0,0,0" ></ImageButton>
                 <Label   HorizontalOptions="CenterAndExpand" Text="Профиль" FontSize="40"  VerticalOptions="Center" TextColor="White" FontFamily="Serif"></Label>
                 <Frame HorizontalOptions="EndAndExpand" HeightRequest="50" Padding="0" BackgroundColor="NavajoWhite" CornerRadius="10" Margin="0,0,10,0" VerticalOptions="Center">
                     <StackLayout Orientation="Horizontal">
-                        <Label FontSize="18"  TextColor="Black"  FontFamily="Serif" VerticalOptions="CenterAndExpand" IsVisible="hidden"></Label>
-                        <Image Source="basket32" HeightRequest="32" VerticalOptions="Center"></Image>
+                        <Label x:Name="CountInCart" FontSize="18"  TextColor="Black"  FontFamily="Serif" VerticalOptions="CenterAndExpand" IsVisible="hidden"></Label>
+                        <ImageButton BackgroundColor="Transparent" Clicked="Cart_Clicked" Source="basket32" HeightRequest="32" VerticalOptions="Center"></ImageButton>
                     </StackLayout>
                 </Frame>
             </StackLayout>
-            <xct:TabView HeightRequest="800" BackgroundColor="#9A3123" Padding="0" Margin="0" >
+           
+            <xct:TabView HeightRequest="800" BackgroundColor="#9A3123" Padding="0" Margin="0"  >
 
                 <xct:TabViewItem FontFamily="Serif" Text="Адреса" BackgroundColor="#6b1d12" TextColor="White" TextColorSelected="#FA4A0C">
                     <xct:TabViewItem.Content>
                         <StackLayout>
-                            <Button Text="Добавить новый адрес" FontFamily="Serif" CornerRadius="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="300" Margin="10" Background="green"></Button>
-                            <CollectionView x:Name="CoollAdress" SelectionMode="Single">
-                                <CollectionView.ItemsLayout>
-                                    <GridItemsLayout Span="1" Orientation="Vertical"></GridItemsLayout>
-                                    
-                                </CollectionView.ItemsLayout>
+                            <Button Text="Добавить новый адрес" Clicked="Add_Clicked" FontFamily="Serif" CornerRadius="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="300" Margin="10" Background="green"></Button>
+                            <CollectionView x:Name="CoollAdress" SelectionMode="Single"> 
                                 <CollectionView.ItemTemplate>
                                     <DataTemplate>
-                                        <Grid HeightRequest="130">
-                                            <StackLayout Orientation="Horizontal">
-                                                <Label FontFamily="Serif" Text="{Binding Adress}" HorizontalOptions="StartAndExpand" VerticalOptions="Center"></Label>
-                                                <Grid HeightRequest="2" BackgroundColor="Orange" WidthRequest="5" HorizontalOptions="EndAndExpand" VerticalOptions="Center">
-                                                    <Grid.GestureRecognizers>
-                                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped">
-                                                            
-                                                        </TapGestureRecognizer>
-                                                    </Grid.GestureRecognizers>
-                                                </Grid>
+                                        <Grid>
+                                            <VisualStateManager.VisualStateGroups>
+                                                <VisualStateGroup Name="CommonStates">
+                                                    <VisualState Name="Normal" />
+                                                    <VisualState Name="Selected">
+                                                        <VisualState.Setters>
+                                                            <Setter Property="BackgroundColor" Value="transparent" />
+                                                        </VisualState.Setters>
+                                                    </VisualState>
 
-                                            </StackLayout>
-                                            <Grid HeightRequest="3" BackgroundColor="Black"></Grid>
+                                                </VisualStateGroup>
+                                            </VisualStateManager.VisualStateGroups>
+                                            <Grid  Padding="0,0,0,30" BackgroundColor="Transparent">
+                                                <StackLayout>
+                                                    <Label Margin="10,0,0,10" Text="{Binding Adres}" FontSize="25" FontFamily="Serif"  TextColor="White"></Label>
+                                                    <Grid BackgroundColor="#6b1d12" HeightRequest="2" ></Grid>
+                                                </StackLayout>
+                                                <StackLayout Margin="0,0,10,0" Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="StartAndExpand">
+                                                    <ImageButton xct:CornerRadiusEffect.CornerRadius="10" WidthRequest="50" BackgroundColor="Black" Source="trash">
+
+                                                    </ImageButton>
+                                                    <ImageButton xct:CornerRadiusEffect.CornerRadius="10" WidthRequest="50" BackgroundColor="Black" Source="edit" Clicked="Edit_Clicked">
+
+                                                    </ImageButton>
+
+                                                </StackLayout>
+
+                                            </Grid>
+                                            
                                         </Grid>
+                                       
                                     </DataTemplate>
                                 </CollectionView.ItemTemplate>
+
                             </CollectionView>
+                            <pancacke:PancakeView x:Name="pancakeadress" xct:CornerRadiusEffect.CornerRadius="30,30,0,0" TranslationY="320" Background="#6b1d12" HeightRequest="450" VerticalOptions="EndAndExpand" Padding="0,50,0,0">
+                                <StackLayout WidthRequest="300" HorizontalOptions="CenterAndExpand">
+                                    <ImageButton Clicked="ImageButton_Clicked" Source="cross" WidthRequest="50" BackgroundColor="Transparent" HorizontalOptions="EndAndExpand" Margin="0,0,0,0"></ImageButton>
+
+                                    <Label Text="Редактирование адреса" FontSize="30" FontFamily="Serif" TextColor="White">
+
+                                    </Label>
+                                    <Entry HeightRequest="60" x:Name="adressEdit" FontSize="20" TextColor="Black" Placeholder="Адрес" PlaceholderColor="Black" FontFamily="Serif" BackgroundColor="White" xct:CornerRadiusEffect.CornerRadius="30"></Entry>
+                                    <Button Text="Изменить адрес" Clicked="EditbtnAdress_Clicked"  FontFamily="Serif" TextColor="Black" CornerRadius="30" Background="white"></Button>
+
+                                </StackLayout>
+                            </pancacke:PancakeView>
+                            <pancacke:PancakeView IsVisible="hidden" x:Name="pancakeadressadd" xct:CornerRadiusEffect.CornerRadius="30,30,0,0" TranslationY="320" Background="#6b1d12" HeightRequest="450" VerticalOptions="EndAndExpand" Padding="0,50,0,0">
+                                <StackLayout WidthRequest="300" HorizontalOptions="CenterAndExpand">
+                                    <ImageButton Clicked="ImageButton_Clicked" Source="cross" WidthRequest="50" BackgroundColor="Transparent" HorizontalOptions="EndAndExpand" Margin="0,0,0,0"></ImageButton>
+
+                                    <Label Text="Новый адрес" FontSize="30" FontFamily="Serif" TextColor="White">
+
+                                    </Label>
+                                    <Entry HeightRequest="60" x:Name="adressAdd"  FontSize="20" TextColor="Black" Placeholder="Адрес" PlaceholderColor="Black" FontFamily="Serif" BackgroundColor="White" xct:CornerRadiusEffect.CornerRadius="30"></Entry>
+                                    <Button Text="Добавить адрес" FontFamily="Serif" Clicked="AddAdress_Clicked_1" TextColor="Black" CornerRadius="30" Background="white"></Button>
+
+                                </StackLayout>
+                            </pancacke:PancakeView>
                         </StackLayout>
                     </xct:TabViewItem.Content>
 
@@ -53,7 +93,7 @@
                 <xct:TabViewItem FontFamily="Serif" Text="Карты" BackgroundColor="#6b1d12" TextColor="White" TextColorSelected="#FA4A0C">
                     <xct:TabViewItem.Content>
                         <StackLayout>
-                            <Button Text="Добавить новую карту" CornerRadius="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="300" Margin="10" Background="green"></Button>
+                            <Button Text="Добавить новую карту" Clicked="AddCard_Clicked" CornerRadius="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="300" Margin="10" Background="green"></Button>
                             <CollectionView x:Name="CoolCards" SelectionMode="Single">
                                 <CollectionView.ItemsLayout>
                                     <GridItemsLayout Span="1" Orientation="Vertical"></GridItemsLayout>
@@ -61,23 +101,64 @@
                                 </CollectionView.ItemsLayout>
                                 <CollectionView.ItemTemplate>
                                     <DataTemplate>
-                                        <Grid HeightRequest="130">
-                                            <StackLayout Orientation="Horizontal">
-                                                <Label Text="{Binding numbercard}" HorizontalOptions="StartAndExpand" VerticalOptions="Center"></Label>
-                                                <Grid HeightRequest="2" BackgroundColor="Orange" WidthRequest="5" HorizontalOptions="EndAndExpand" VerticalOptions="Center">
-                                                    <Grid.GestureRecognizers>
-                                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped">
+                                        <Grid>
+                                            <VisualStateManager.VisualStateGroups>
+                                                <VisualStateGroup Name="CommonStates">
+                                                    <VisualState Name="Normal" />
+                                                    <VisualState Name="Selected">
+                                                        <VisualState.Setters>
+                                                            <Setter Property="BackgroundColor" Value="transparent" />
+                                                        </VisualState.Setters>
+                                                    </VisualState>
 
-                                                        </TapGestureRecognizer>
-                                                    </Grid.GestureRecognizers>
-                                                </Grid>
+                                                </VisualStateGroup>
+                                            </VisualStateManager.VisualStateGroups>
+                                            <Grid  Padding="0,0,0,30" BackgroundColor="Transparent">
+                                                <StackLayout>
+                                                    <Label Margin="10,0,0,10" Text="{Binding NumberCard}" FontSize="25" FontFamily="Serif"  TextColor="White"></Label>
+                                                    <Grid BackgroundColor="#6b1d12" HeightRequest="2" ></Grid>
+                                                </StackLayout>
+
+
+                                            </Grid>
+                                            <StackLayout Margin="0,0,10,0" Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="StartAndExpand">
+                                                <ImageButton xct:CornerRadiusEffect.CornerRadius="10" WidthRequest="50" BackgroundColor="Black" Source="trash">
+
+                                                </ImageButton>
+                                                <ImageButton xct:CornerRadiusEffect.CornerRadius="10" WidthRequest="50" BackgroundColor="Black" Source="edit" Clicked="EditCard_Clicked">
+
+                                                </ImageButton>
 
                                             </StackLayout>
-                                            <Grid HeightRequest="3" BackgroundColor="Black"></Grid>
                                         </Grid>
+
                                     </DataTemplate>
                                 </CollectionView.ItemTemplate>
                             </CollectionView>
+
+                            <pancacke:PancakeView x:Name="PanCakeCardEdit" xct:CornerRadiusEffect.CornerRadius="30,30,0,0" Background="#6b1d12" TranslationY="320" HeightRequest="450" VerticalOptions="EndAndExpand" Padding="0,50,0,0">
+                                <StackLayout WidthRequest="300" HorizontalOptions="Center">
+                                    <ImageButton Clicked="ImageButton_Clicked" Source="cross" WidthRequest="50" BackgroundColor="Transparent" HorizontalOptions="EndAndExpand" Margin="0,0,0,0"></ImageButton>
+                                    <Label Text="Редактирование карты" FontSize="30" FontFamily="Serif" TextColor="White">
+
+                                    </Label>
+                                    <Entry x:Name="EditCardEntry" HeightRequest="60" FontSize="20" TextColor="Black" Placeholder="Номер карты" Keyboard="Numeric" PlaceholderColor="Black" FontFamily="Serif" BackgroundColor="White" xct:CornerRadiusEffect.CornerRadius="30"></Entry>
+                                    <Button Text="Изменить даные карты" Clicked="EditbtnCard_Clicked" CornerRadius="30" Background="white"></Button>
+
+                                </StackLayout>
+                            </pancacke:PancakeView>
+                            <pancacke:PancakeView x:Name="PanCakeCardAdd" IsVisible="hidden" xct:CornerRadiusEffect.CornerRadius="30,30,0,0" Background="#6b1d12" TranslationY="320" HeightRequest="450" VerticalOptions="EndAndExpand" Padding="0,50,0,0">
+                                <StackLayout WidthRequest="300" HorizontalOptions="Center">
+                                    <ImageButton Clicked="ImageButton_Clicked" Source="cross" WidthRequest="50" BackgroundColor="Transparent" HorizontalOptions="EndAndExpand" Margin="0,0,0,0"></ImageButton>
+
+                                    <Label Text="Добавление карты" FontSize="30" FontFamily="Serif" TextColor="White">
+
+                                    </Label>
+                                    <Entry  x:Name="AddCardEntry" HeightRequest="60" FontSize="20" TextColor="Black" Placeholder="Номер карты" Keyboard="Numeric" PlaceholderColor="Black" FontFamily="Serif" BackgroundColor="White" xct:CornerRadiusEffect.CornerRadius="30"></Entry>
+                                    <Button Text="Новая карта" Clicked="AddCard_Clicked_1" CornerRadius="30" Background="white"></Button>
+
+                                </StackLayout>
+                            </pancacke:PancakeView>
                         </StackLayout>
 
                     </xct:TabViewItem.Content>
