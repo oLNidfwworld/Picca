@@ -17,6 +17,9 @@
                 <Label x:Name="DateOrder" FontSize="20" TextColor="White" FontFamily="Serif" Text="Дата заказа:"></Label>
                 <Label x:Name="SummaTXB" FontSize="20" TextColor="White" FontFamily="Serif" Text="Общая сумма:"></Label>
                 <Label x:Name="Status" FontSize="20" TextColor="White" FontFamily="Serif" Text="Статус:"></Label>
+                <Label x:Name="adress_1" FontSize="20" TextColor="White" FontFamily="Serif" Text="Статус:"></Label>
+                <Label x:Name="card_1" FontSize="20" TextColor="White" FontFamily="Serif" Text="Статус:"></Label>
+
                 <Label  FontSize="25" TextColor="White" FontFamily="Serif" Text="В заказе:"></Label>
 
                 <CollectionView x:Name="CoolOrderItems">

@@ -43,6 +43,11 @@ namespace Picca.Views
                 CountInCart.Text = Convert.ToString(incartcount.Count);
                 CountInCart.IsVisible = true;
             }
+            else
+            {
+                CountInCart.Text = null;
+                CountInCart.IsVisible = false;
+            }
         }
         
         private void Edit_Clicked(object sender, EventArgs e)

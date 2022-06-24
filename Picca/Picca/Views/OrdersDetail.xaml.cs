@@ -27,6 +27,8 @@ namespace Picca.Views
             DateOrder.Text = $"Дата заказа: {order_1.date}";
             SummaTXB.Text = $"Общая сумма: {order_1.price} Р";
             Status.Text = $"Cтатус: {order_1.status}";
+            adress_1.Text = $"Адрес: {order_1.adress}";
+            card_1.Text = $"Карта оплаты: {order_1.card}";
             CoolOrderItems.ItemsSource = null;
             CoolOrderItems.ItemsSource = await new OrderItemsService().GetOrderItemsByOrderId(order_1);
         }

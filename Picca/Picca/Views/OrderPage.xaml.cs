@@ -1,4 +1,5 @@
-﻿using Picca.Services;
+﻿using Picca.Models;
+using Picca.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,7 +46,7 @@ namespace Picca.Views
             {
                 DateTime date = DateTime.Now;
                 string ate = date.ToString();
-                await new OrderService().AddOrder(ate, Summa);
+                await new OrderService().AddOrder(ate, Summa, CombAdress.SelectedItem as Adreses, CombСard.SelectedItem as Cards);
                 var listbasket = await new BasketService().GetBasketAsync();
                 foreach(var item in listbasket)
                 {

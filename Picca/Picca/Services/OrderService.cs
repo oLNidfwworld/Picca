@@ -28,7 +28,9 @@ namespace Picca.Services
                     id_order = c.Object.id_order,
                     date = c.Object.date,
                     price = c.Object.price,
-                    status = c.Object.status
+                    status = c.Object.status,
+                    adress = c.Object.adress,
+                    card = c.Object.card
 
 
 
@@ -48,7 +50,7 @@ namespace Picca.Services
             }
             return collection;
         }
-        public async Task<bool> AddOrder(string date, int Price)
+        public async Task<bool> AddOrder(string date, int Price, Adreses adres, Cards cards)
         {
             var user = await new UserService().GetUserByLogin(Preferences.Get("Login", string.Empty));
             var orders = await GetOrder();
@@ -60,7 +62,9 @@ namespace Picca.Services
                 status = "Готовится",
                 date = date,
                 order_number = new Random().Next(0, int.MaxValue),
-                price = Price
+                price = Price,
+                adress = adres.Adres,
+                card = cards.NumberCard
 
             });
             return true;

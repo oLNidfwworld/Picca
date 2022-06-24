@@ -12,5 +12,9 @@ namespace Picca.Models
         public string date { get; set; }
         public string status { get; set; }
         public int user_id { get; set; }
+        
+        public string adress { get; set; }
+
+        public string  card { get; set; }
     }
 }
