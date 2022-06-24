@@ -18,10 +18,10 @@
         </StackLayout>
 
             <Grid HeightRequest="500" x:Name="korzinapusta" IsVisible="hidden" HorizontalOptions="Center"  VerticalOptions="Center">
-                <Label FontSize="50" VerticalOptions="Center" FontFamily="Serif" TextColor="#6b1d12">Корзина пуста</Label>
+                <Label FontSize="50" VerticalOptions="Center" FontFamily="Serif" TextColor="#6b1d12" Text="Корзина пуста"></Label>
             </Grid>
             <ScrollView x:Name="coolvisible" Grid.Row="0" IsVisible="true">
-                <CollectionView HeightRequest="500" x:Name="COLLCart" ItemsSource="{Binding  ItemsCart}"
+                <CollectionView  x:Name="COLLCart" ItemsSource="{Binding  ItemsCart}"
                             VerticalOptions="FillAndExpand"
                             VerticalScrollBarVisibility="Never"
                             SelectionMode="Single"

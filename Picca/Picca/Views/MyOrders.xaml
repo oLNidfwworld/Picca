@@ -19,14 +19,14 @@
                             <Frame BackgroundColor="#6b1d12" CornerRadius="20" xct:TouchEffect.PressedAnimationEasing="{x:Static Easing.SpringOut}" xct:TouchEffect.PressedScale="1.01" xct:TouchEffect.AnimationDuration="250" xct:TouchEffect.PressedOpacity="0.7">
                                 <StackLayout Orientation="Vertical">
                                     <StackLayout>
-                                        <Label FontSize="30" FontFamily="Serif" TextColor="white" Text="{Binding order_number , StringFormat='Номер: {0}'}">
+                                        <Label FontSize="25" FontFamily="Serif" TextColor="white" Text="{Binding order_number , StringFormat='Номер: {0}'}">
 
                                         </Label>
                                     </StackLayout>
                                   
                                     <StackLayout HorizontalOptions="StartAndExpand" Orientation="Vertical">
-                                        <Label Text="{Binding price , StringFormat='Цена: {0} Р'}" FontSize="30" FontFamily="Serif" TextColor="white"></Label>
-                                        <Label Text="{Binding status , StringFormat='Статус: {0}'}" FontSize="30" FontFamily="Serif" TextColor="white"></Label>
+                                        <Label Text="{Binding price , StringFormat='Цена: {0} Р'}" FontSize="25" FontFamily="Serif" TextColor="white"></Label>
+                                        <Label Text="{Binding status , StringFormat='Статус: {0}'}" FontSize="25" FontFamily="Serif" TextColor="white"></Label>
                                     </StackLayout>
                                 </StackLayout>
                             </Frame>

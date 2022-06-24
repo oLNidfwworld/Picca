@@ -25,12 +25,9 @@ namespace Picca.Views
             if(result == true)
             {
                 Preferences.Clear();
-                var existingPages = Navigation.NavigationStack.ToList();
-                foreach (var page in existingPages)
-                {
-                    Navigation.RemovePage(page);
-                }
-                await Shell.Current.GoToAsync($"//{nameof(AuthorizationPage)}");
+
+                await Shell.Current.Navigation.PushModalAsync(new AuthorizationPage());
+
 
             }
         }

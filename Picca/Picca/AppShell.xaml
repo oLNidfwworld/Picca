@@ -37,8 +37,9 @@
     <TabBar>
         <ShellContent Title="Главная" Icon="home_icon.png" Route="Home" ContentTemplate="{DataTemplate local:Home}" />
         <ShellContent Title="Рестораны" Icon="map.png" Route="Coupons" ContentTemplate="{DataTemplate local:Restorans}" />
-        <ShellContent Title="Подробнее" Icon="dots.png" Route="History" ContentTemplate="{DataTemplate local:MorePage}" />
+        <ShellContent Title="Подробнее" Icon="dots.png" Route="History"  ContentTemplate="{DataTemplate local:MorePage}" />
 
+        <ShellContent Title="Login" Icon="ic_sharp_history.png" Route="Login" IsVisible="False" ContentTemplate="{DataTemplate local:AuthorizationPage}" />
 
     </TabBar>
 

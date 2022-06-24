@@ -28,10 +28,13 @@
                             <Grid Padding="5">
                                 <Grid WidthRequest="600" BackgroundColor="#6b1d12" xct:CornerRadiusEffect.CornerRadius="30" Margin="0,0,0,0"  HeightRequest="150">
                                     <StackLayout Orientation="Horizontal" Padding="10">
-                                        <Image WidthRequest="80" VerticalOptions="Center" Source="{Binding imgFood}"></Image>
-                                        <Label VerticalOptions="Center" Text="{Binding Name}" FontSize="25  " TextColor="White" FontFamily="Serif"   ></Label>
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="StartAndExpand">
+                                            <Image WidthRequest="80" VerticalOptions="Center" Source="{Binding imgFood}"></Image>
+                                            <Label VerticalOptions="Center" Text="{Binding Name}" FontSize="24  " TextColor="White" FontFamily="Serif"   ></Label>
+                                        </StackLayout>
+                                       
                                         <StackLayout VerticalOptions="Center" HorizontalOptions="EndAndExpand" Orientation="Vertical">
-                                            <Label Text="{Binding price, StringFormat='Цена: {0} Р'}"  FontSize="15" TextColor="White" FontFamily="Serif"></Label>
+                                            <Label Text="{Binding price, StringFormat='Цена: {0} Р'}"  FontSize="11" TextColor="White" FontFamily="Serif"></Label>
                                             <Label  Text="{Binding count, StringFormat='{0}X'}" HorizontalOptions="Center"     FontSize="15" TextColor="White" FontFamily="Serif">
                                                 
                                             </Label>

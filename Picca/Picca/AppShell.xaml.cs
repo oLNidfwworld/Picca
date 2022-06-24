@@ -11,6 +11,7 @@ namespace Picca
         public AppShell()
         {
             InitializeComponent();
+            Routing.RegisterRoute(nameof(AuthorizationPage), typeof(AuthorizationPage));
 
         }
 
