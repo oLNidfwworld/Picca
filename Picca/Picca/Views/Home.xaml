@@ -21,9 +21,10 @@
                 </Frame>
             </StackLayout>
             <ScrollView>
-                
-            
-            <Grid BackgroundColor="#9A3123"  >
+
+
+
+                    <Grid BackgroundColor="#9A3123"  >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"></RowDefinition>
                     <RowDefinition Height="auto"></RowDefinition>
@@ -113,8 +114,9 @@
                     
                     
                 </Grid>
-            </ScrollView>
 
+            </ScrollView>
+          
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

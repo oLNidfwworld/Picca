@@ -33,8 +33,8 @@
                                             <Label VerticalOptions="Center" Text="{Binding Name}" FontSize="24  " TextColor="White" FontFamily="Serif"   ></Label>
                                         </StackLayout>
                                        
-                                        <StackLayout VerticalOptions="Center" HorizontalOptions="EndAndExpand" Orientation="Vertical">
-                                            <Label Text="{Binding price, StringFormat='Цена: {0} Р'}"  FontSize="11" TextColor="White" FontFamily="Serif"></Label>
+                                        <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                                            <Label Text="{Binding price, StringFormat='Цена: {0} Р'}"  FontSize="13" TextColor="White" FontFamily="Serif"></Label>
                                             <Label  Text="{Binding count, StringFormat='{0}X'}" HorizontalOptions="Center"     FontSize="15" TextColor="White" FontFamily="Serif">
                                                 
                                             </Label>

@@ -16,16 +16,19 @@ namespace Picca.Views
         public AuthorizationPage()
         {
             InitializeComponent();
-            if(Preferences.ContainsKey("Login"))
+            if (Preferences.ContainsKey("Login"))
             {
                 Shell.Current.GoToAsync($"//{nameof(Home)}");
             }
-        }
+          
 
+        }
+        public bool isRefreshing;
         private async void Login_Clicked(object sender, EventArgs e)
         {
+            img_refreshing.IsVisible = true;
             bool result = await new UserService().LoginUser(Login.Text, Password.Text);
-            if(result == true)
+            if (result == true)
             {
                 Preferences.Set("Login", Login.Text);
 
@@ -36,6 +39,9 @@ namespace Picca.Views
                 await Shell.Current.DisplayAlert("Ошибка", "Неправильный логин или пароль", "ОК");
             }
 
+            img_refreshing.IsVisible = false;
         }
+       
     }
+    
 }

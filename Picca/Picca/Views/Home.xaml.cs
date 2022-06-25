@@ -47,8 +47,24 @@ namespace Picca.Views
 
         private async void ContentPage_Appearing(object sender, EventArgs e)
         {
+
             var incartcount = await new BasketService().GetBasketAsync();
             if(incartcount.Count != 0)
+            {
+                CountInCart.Text = Convert.ToString(incartcount.Count);
+                CountInCart.IsVisible = true;
+            }
+            else
+            {
+                CountInCart.Text = null;
+                CountInCart.IsVisible = false;
+            }
+        }
+
+        private async void RefreshView_Refreshing(object sender, EventArgs e)
+        {
+            var incartcount = await new BasketService().GetBasketAsync();
+            if (incartcount.Count != 0)
             {
                 CountInCart.Text = Convert.ToString(incartcount.Count);
                 CountInCart.IsVisible = true;

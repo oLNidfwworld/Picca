@@ -55,8 +55,15 @@ namespace Picca.Views
             Adres = CoollAdress.SelectedItem as Adreses;
             pancakeadress.IsVisible = true;
             pancakeadressadd.IsVisible = false;
-            adressEdit.Text = Adres.Adres;
+            if (Adres.Adres == null)
+            {
+                Shell.Current.DisplayAlert("Ошибка", "Выберите адрес, нажав на коллекцию. Я незнаю почему оно не селектится при клике на кнопку, как в корзине", "Ок");
+            }
+            else
+            {
+                adressEdit.Text = Adres.Adres;
 
+            }
             if (pancakeadress.TranslationY == 0)
             {
                 pancakeadress.TranslateTo(0, 320, 200);
@@ -112,10 +119,18 @@ namespace Picca.Views
             Card = CoolCards.SelectedItem as Cards;
             PanCakeCardEdit.IsVisible = true;
             PanCakeCardAdd.IsVisible = false;
-            EditCardEntry.Text = Card.NumberCard;
+            if(Card.NumberCard == null)
+            {
+                Shell.Current.DisplayAlert("Ошибка", "Выберите карту, нажав на коллекцию. Я незнаю почему оно не селектится при клике на кнопку, как в корзине", "Ок");
+            }
+            else
+            {
+                EditCardEntry.Text = Card.NumberCard;
+
+            }
             if (PanCakeCardEdit.TranslationY == 0)
             {
-                PanCakeCardEdit.TranslateTo(0, 320, 200);
+                PanCakeCardEdit.TranslateTo(0, 340, 200);
             }
             else
             {
@@ -129,7 +144,7 @@ namespace Picca.Views
             EditCardEntry.Text = null;
             if (PanCakeCardAdd.TranslationY == 0)
             {
-                PanCakeCardAdd.TranslateTo(0, 320, 200);
+                PanCakeCardAdd.TranslateTo(0, 340, 200);
             }
             else
             {
@@ -177,11 +192,11 @@ namespace Picca.Views
             }
             else if (PanCakeCardAdd.TranslationY == 0)
             {
-                PanCakeCardAdd.TranslateTo(0, 320, 200);
+                PanCakeCardAdd.TranslateTo(0, 340, 200);
 
             }
             else if(PanCakeCardEdit.TranslationY == 0){
-                PanCakeCardEdit.TranslateTo(0, 320, 200);
+                PanCakeCardEdit.TranslateTo(0, 340, 200);
 
             }
         }
@@ -192,6 +207,28 @@ namespace Picca.Views
         private async void Cart_Clicked(object sender, EventArgs e)
         {
             await Shell.Current.Navigation.PushModalAsync(new Cart());
+        }
+
+        private async void RefreshView_Refreshing(object sender, EventArgs e)
+        {
+            Refresh.IsRefreshing = true;
+            var user = await new UserService().GetUserByLogin(Preferences.Get("Login", string.Empty)) as Users;
+            CoollAdress.ItemsSource = await new AdressService().GetAdresesByUserId();
+
+            CoolCards.ItemsSource = await new CardsService().GetCardsByUserId();
+            var incartcount = await new BasketService().GetBasketAsync();
+            if (incartcount.Count != 0)
+            {
+                CountInCart.Text = Convert.ToString(incartcount.Count);
+                CountInCart.IsVisible = true;
+            }
+            else
+            {
+                CountInCart.Text = null;
+                CountInCart.IsVisible = false;
+            }
+            Refresh.IsRefreshing = false;
+
         }
     }
 }

@@ -6,6 +6,8 @@
              Shell.NavBarIsVisible="False"
              xmlns:xct ="http://xamarin.com/schemas/2020/toolkit">
     <ContentPage.Content>
+        <Grid>
+        <Image x:Name="img_refreshing" IsVisible="false" VerticalOptions="Start" HorizontalOptions="Center" HeightRequest="80" WidthRequest="80" Source="refreshing" IsAnimationPlaying="True" Margin="0,50,0,0" ></Image>
         <StackLayout Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
             <Image Source="logo_pizza" HeightRequest="250"></Image>
             <Entry HeightRequest="50" Background="white" x:Name="Login"  FontFamily="Serif"  xct:CornerRadiusEffect.CornerRadius="50" ClearButtonVisibility="WhileEditing"   FontSize="18" TextColor="Black" PlaceholderColor="Black" Placeholder="Введите логин"></Entry>
@@ -13,5 +15,8 @@
             <Button Text="Войти" Clicked="Login_Clicked" Background="#FC998A" CornerRadius="50"  FontFamily="Serif" xct:TouchEffect.AnimationEasing="{x:Static Easing.Linear}" xct:TouchEffect.PressedOpacity="0.7"></Button>
             <Button Text="Зарегистрироваться" Background="#541651"  FontFamily="Serif" CornerRadius="50" xct:TouchEffect.AnimationEasing="{x:Static Easing.Linear}" xct:TouchEffect.PressedOpacity="0.7"></Button>
         </StackLayout>
+        </Grid>
+
+
     </ContentPage.Content>
 </ContentPage>

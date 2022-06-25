@@ -17,7 +17,8 @@
                     </StackLayout>
                 </Frame>
             </StackLayout>
-           
+            <RefreshView Refreshing="RefreshView_Refreshing" x:Name="Refresh">
+                
             <xct:TabView HeightRequest="800" BackgroundColor="#9A3123" Padding="0" Margin="0"  >
 
                 <xct:TabViewItem FontFamily="Serif" Text="Адреса" BackgroundColor="#6b1d12" TextColor="White" TextColorSelected="#FA4A0C">
@@ -62,7 +63,7 @@
                                 </CollectionView.ItemTemplate>
 
                             </CollectionView>
-                            <pancacke:PancakeView x:Name="pancakeadress" xct:CornerRadiusEffect.CornerRadius="30,30,0,0" TranslationY="320" Background="#6b1d12" HeightRequest="450" VerticalOptions="EndAndExpand" Padding="0,50,0,0">
+                            <pancacke:PancakeView IsVisible="false" x:Name="pancakeadress" xct:CornerRadiusEffect.CornerRadius="30,30,0,0" TranslationY="320" Background="#6b1d12" HeightRequest="450" VerticalOptions="EndAndExpand" Padding="0,50,0,0">
                                 <StackLayout WidthRequest="300" HorizontalOptions="CenterAndExpand">
                                     <ImageButton Clicked="ImageButton_Clicked" Source="cross" WidthRequest="50" BackgroundColor="Transparent" HorizontalOptions="EndAndExpand" Margin="0,0,0,0"></ImageButton>
 
@@ -74,7 +75,7 @@
 
                                 </StackLayout>
                             </pancacke:PancakeView>
-                            <pancacke:PancakeView IsVisible="hidden" x:Name="pancakeadressadd" xct:CornerRadiusEffect.CornerRadius="30,30,0,0" TranslationY="320" Background="#6b1d12" HeightRequest="450" VerticalOptions="EndAndExpand" Padding="0,50,0,0">
+                                <pancacke:PancakeView IsVisible="false"  x:Name="pancakeadressadd" xct:CornerRadiusEffect.CornerRadius="30,30,0,0" TranslationY="320" Background="#6b1d12" HeightRequest="450" VerticalOptions="EndAndExpand" Padding="0,50,0,0">
                                 <StackLayout WidthRequest="300" HorizontalOptions="CenterAndExpand">
                                     <ImageButton Clicked="ImageButton_Clicked" Source="cross" WidthRequest="50" BackgroundColor="Transparent" HorizontalOptions="EndAndExpand" Margin="0,0,0,0"></ImageButton>
 
@@ -136,7 +137,7 @@
                                 </CollectionView.ItemTemplate>
                             </CollectionView>
 
-                            <pancacke:PancakeView x:Name="PanCakeCardEdit" xct:CornerRadiusEffect.CornerRadius="30,30,0,0" Background="#6b1d12" TranslationY="320" HeightRequest="450" VerticalOptions="EndAndExpand" Padding="0,50,0,0">
+                                <pancacke:PancakeView IsVisible="false" x:Name="PanCakeCardEdit" xct:CornerRadiusEffect.CornerRadius="30,30,0,0" Background="#6b1d12" TranslationY="340" HeightRequest="450" VerticalOptions="EndAndExpand" Padding="0,50,0,0">
                                 <StackLayout WidthRequest="300" HorizontalOptions="Center">
                                     <ImageButton Clicked="ImageButton_Clicked" Source="cross" WidthRequest="50" BackgroundColor="Transparent" HorizontalOptions="EndAndExpand" Margin="0,0,0,0"></ImageButton>
                                     <Label Text="Редактирование карты" FontSize="30" FontFamily="Serif" TextColor="White">
@@ -147,7 +148,7 @@
 
                                 </StackLayout>
                             </pancacke:PancakeView>
-                            <pancacke:PancakeView x:Name="PanCakeCardAdd" IsVisible="hidden" xct:CornerRadiusEffect.CornerRadius="30,30,0,0" Background="#6b1d12" TranslationY="320" HeightRequest="450" VerticalOptions="EndAndExpand" Padding="0,50,0,0">
+                                <pancacke:PancakeView IsVisible="false" x:Name="PanCakeCardAdd" xct:CornerRadiusEffect.CornerRadius="30,30,0,0" Background="#6b1d12" TranslationY="340" HeightRequest="450" VerticalOptions="EndAndExpand" Padding="0,50,0,0">
                                 <StackLayout WidthRequest="300" HorizontalOptions="Center">
                                     <ImageButton Clicked="ImageButton_Clicked" Source="cross" WidthRequest="50" BackgroundColor="Transparent" HorizontalOptions="EndAndExpand" Margin="0,0,0,0"></ImageButton>
 
@@ -155,7 +156,7 @@
 
                                     </Label>
                                     <Entry  x:Name="AddCardEntry" HeightRequest="60" FontSize="20" TextColor="Black" Placeholder="Номер карты" Keyboard="Numeric" PlaceholderColor="Black" FontFamily="Serif" BackgroundColor="White" xct:CornerRadiusEffect.CornerRadius="30"></Entry>
-                                    <Button Text="Новая карта" Clicked="AddCard_Clicked_1" CornerRadius="30" Background="white"></Button>
+                                    <Button Text="Новая карта" TextColor="Black" Clicked="AddCard_Clicked_1" CornerRadius="30" Background="white"></Button>
 
                                 </StackLayout>
                             </pancacke:PancakeView>
@@ -164,6 +165,8 @@
                     </xct:TabViewItem.Content>
                 </xct:TabViewItem>
             </xct:TabView>
+            </RefreshView>
+
         </StackLayout>
        
         
