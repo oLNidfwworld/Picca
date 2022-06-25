@@ -36,8 +36,7 @@ namespace Picca.Views
         {
             await new BasketService().AddToCart(food_name);
             await Shell.Current.DisplayAlert("Успешно","Позиция успешно добавлена в корзину", "Ок");
-            await Shell.Current.Navigation.PopPopupAsync();
-
+    
         }
     }
 }
